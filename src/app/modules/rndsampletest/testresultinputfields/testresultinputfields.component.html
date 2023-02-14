@@ -24,19 +24,6 @@
 </style> -->
 
 <style>
-    table,
-    th,
-    td {
-        border: 1px solid black;
-    }
-
-    .div-outer-table {
-        overflow-x: scroll;
-        display: inline-grid;
-    }
-</style>
-
-<style>
     label {
         color: Navy;
         font-family: 'arial';
@@ -67,19 +54,6 @@
         margin-top: 8px;
     }
 </style> -->
-
-<style>
-    table,
-    th,
-    td {
-        border: 1px solid black;
-    }
-
-    .div-outer-table {
-        overflow-x: scroll;
-        display: inline-grid;
-    }
-</style>
 
 <style>
     label {
@@ -446,16 +420,16 @@
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th scope="col" style="width:133px">SampleID</th>                                                        
-                                                        <th scope="col" style="width:12px">#</th>
-                                                        <th scope="col" style="width:100px">Parameter</th>
-                                                        <th scope="col" style="width:100px">TestResult</th>
-                                                        <th scope="col" style="width:100px">Unit</th>
-                                                        <th scope="col" style="width:100px">RL</th>
-                                                        <th scope="col" style="width:100px">LimitValue</th>
-                                                        <th scope="col" style="width:106px">Comment</th>
-                                                        <th scope="col" hidden>Action</th>
-                                                        <th scope="col" hidden>Action</th>
+                                                        <th scope="col" style="width:133px; border: 1px solid black;">SampleID</th>                                                        
+                                                        <th scope="col" style="width:12px; border: 1px solid black;">#</th>
+                                                        <th scope="col" style="width:100px; border: 1px solid black;">Parameter</th>
+                                                        <th scope="col" style="width:100px; border: 1px solid black;">TestResult</th>
+                                                        <th scope="col" style="width:100px; border: 1px solid black;">Unit</th>
+                                                        <th scope="col" style="width:100px; border: 1px solid black;">RL</th>
+                                                        <th scope="col" style="width:100px; border: 1px solid black;">LimitValue</th>
+                                                        <th scope="col" style="width:106px; border: 1px solid black;">Comment</th>
+                                                        <th scope="col" style="border: 1px solid black;" hidden>Action</th>
+                                                        <th scope="col" style="border: 1px solid black;" hidden>Action</th>
                                                     </tr>
                                                 </thead>
                                             </table>
@@ -465,8 +439,8 @@
 
                                 <div fxFlex="100" fxLayout="row" fxLayout.xs="column" fxLayoutGap="5px">
                                     <div fxFlex="1 1 100" fxLayout="row" fxLayoutAlign="space-between start">
-                                        <div fxFlex="1 1 100" fxLayout="row" class="div-outer-table">
-                                            <table class="table" formArrayName="TestResults">                                                
+                                        <div fxFlex="1 1 100" fxLayout="row" style="overflow-x: scroll; display: inline-grid;">
+                                            <table formArrayName="TestResults" style="border: 1px solid black;">                                                
                                                 <tbody>
                                                     <tr *ngFor="let person of getPeople(TestParameter); let i=index"
                                                         [formGroupName]="i">
@@ -475,7 +449,7 @@
                                                                 placeholder="SampleID" formControlName="SampleID"
                                                                 style="width:125px; font-size: 10pt; color:Navy; font-family: Arial, Helvetica, sans-serif;" readonly disabled></td>
 
-                                                        <td>
+                                                        <td style="border: 1px solid black;">
                                                             <table class="table table-sm" formArrayName="Results">
                                                                 <tbody>
                                                                     <tr *ngFor="let address of getAddress(person); let j=index"
