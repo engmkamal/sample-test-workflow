@@ -1,0 +1,88 @@
+
+//@import "https://unpkg.com/@angular/material/prebuilt-themes/indigo-pink.css";
+// .fix-this {
+//     all: unset;
+// }  
+
+// mat-select {
+//     font-size: 12px;
+//     margin-top: -25px;
+// }
+
+
+
+.reportTxt {
+    border: none;
+    background: transparent;
+    color: Navy
+}
+
+// ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {    
+//     height: 40px;
+//     margin-top: -12px;
+// }
+
+table,
+th,
+td {
+    border: 1px solid black;
+}
+
+.div-outer-table {
+    overflow-x: scroll;
+    display: inline-grid;
+}
+
+label {
+    color: Navy;
+    font-family: 'arial';
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+}
+
+.div-outer-table {
+    overflow-x: scroll;
+    display: inline-grid;
+}
+
+.readOnly {
+    border: none;
+    background: transparent;
+    color: Navy;
+}
+
+.matFld {
+    color: Navy;
+    font-size: 12px;
+    height: 30px;
+}
+
+.pTxt {
+    color: white;
+    margin-left: 35px;
+    font-family: 'arial';
+    font-size: 20pt;
+}
+
+.divBg {
+    background-color: whitesmoke;
+    padding: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.matFldMarg {
+    color: Navy;
+    font-size: 12px;
+ }
+
+ 
+//@import "~@ng-select/ng-select/themes/material.theme.css";
+
+// ... or 
+
+//@import "~@ng-select/ng-select/themes/default.theme.css";

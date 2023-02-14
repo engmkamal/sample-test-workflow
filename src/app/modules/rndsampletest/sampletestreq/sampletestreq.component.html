@@ -1,0 +1,145 @@
+<!-- <style>
+  .fix-this {
+    all: unset;
+  }
+</style> -->
+<!-- <style>
+  mat-form-field {
+    font-size: 12px;
+    margin-top: -25px;
+    height: 55px;
+  }
+
+  mat-select {
+    font-size: 12px;
+    margin-top: -25px;
+  }
+
+  mat-form-field>input {
+    margin-top: -25px;
+  }
+
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    /* remove border if needed  */
+    /* color: transparent !important;  */
+    height: 32px;
+    margin-top: 8px;
+  }
+</style> -->
+
+<style>
+  table,
+  th,
+  td {
+    border: 1px solid black;
+  }
+
+  .div-outer-table {
+    overflow-x: scroll;
+    display: inline-grid;
+  }
+</style>
+
+<style>
+  label {
+    color: Navy;
+    font-family: 'arial';
+  }
+</style>
+
+<!-- <style>
+  mat-form-field {
+    font-size: 12px;
+    margin-top: -25px;
+    height: 55px;
+  }
+
+  mat-select {
+    font-size: 12px;
+    margin-top: -25px;
+  }
+
+  mat-form-field>input {
+    margin-top: -25px;
+  }
+
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    height: 32px;
+    margin-top: 8px;
+  }
+</style> -->
+
+<style>
+  table,
+  th,
+  td {
+    border: 1px solid black;
+  }
+
+  .div-outer-table {
+    overflow-x: scroll;
+    display: inline-grid;
+  }
+</style>
+
+<style>
+  label {
+    color: Navy;
+    font-family: 'arial';
+  }
+</style>
+
+
+
+<!-- <link href="https://unpkg.com/@angular/material/prebuilt-themes/indigo-pink.css" rel="stylesheet"> -->
+
+<div style="width: 100%; margin: auto;" class="fix-this panel">
+  <div style="width: 100%; background-color: #014AC5;">
+    <form [formGroup]="_form" (ngSubmit)="onSubmitBtn()">
+      <br/>
+      <h2 style="color: white; margin-left: 35px; font-family: 'arial';">
+        Sample Test Request
+      </h2>
+      <br/>
+      <div style="background-color: whitesmoke; padding: 15px; margin-left: 15px; margin-right: 15px;">
+        <app-requestor [formGroup]="_form" [requestorsInfo]="requestorsInfo"></app-requestor>
+      </div>
+      <br>
+      <div style="background-color: whitesmoke; padding: 15px; margin-left: 15px; margin-right: 15px;">
+        <div>
+          <section class="top-bar">
+            <!-- <span>Nested TestParameters</span> 
+            <button type="button" label="Add Statement" (click)="_buildFormFromData()">
+              build form based on data
+            </button> -->
+            <button type="button" label="Add Statement" (click)="_addGroup()" hidden>Add Test Parameter</button>
+          </section>
+         
+          <ng-container formArrayName="TestParameters">
+            <ng-container *ngFor="let group of _groupsFormArray?.controls; index as i">
+              <app-group-control (remove)="_delete(i)" [formControlName]="i"
+                [formLabel]="'TestParameter '+ (i + 1) + ':'"
+                [requestInfo]="requestInfo">
+              </app-group-control>
+            </ng-container>
+          </ng-container>
+          
+        </div>
+        <br>
+        <br>
+        <!-- <pre>Requestors Info: {{ requestorsInfo | json }}</pre>
+        <pre>{{ _form.value | json }}</pre> -->
+      </div>
+     
+      <br>
+      <div style="background-color: whitesmoke; padding: 15px; margin-left: 15px; margin-right: 15px;">
+        <div fxLayout="row" fxFlex="1 1 100">
+          <!-- <button mat-button type="submit" class="mat-raised-button mat-primary btnApplicationSubmit" id="btnSubmitApplication">Submit</button> -->
+          <button mat-button type="submit" class="mat-raised-button mat-primary"
+                                 (click)="approverAction('Submitted')" id="btnSubmitNewReq">Submit</button>
+        </div>
+      </div>
+    </form>
+    <br>
+  </div>
+</div>

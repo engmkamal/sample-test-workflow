@@ -1,0 +1,69 @@
+
+
+<div 
+   *ngFor="let group of allGroups" 
+   style="width: 70%; margin: auto;">
+      <mat-accordion>
+         <mat-expansion-panel style="background: linear-gradient(45deg, #3bade3 0%, #576fe6 25%, #9844b7 51%, #ff357f 100%);">
+            <mat-expansion-panel-header style="color:white;">
+               <span color="red" style="font-size:x-large;">{{group.key}}&nbsp; &nbsp;(Total:{{group.value.length}})</span>
+            </mat-expansion-panel-header>
+            <div class="panel-content"> 
+               <ag-grid-angular
+               style="width: 100%; height: 300px;"
+               class="ag-theme-alpine"
+               [defaultColDef]="mpTG.defaultColDef"
+               [columnDefs]="mpTG.columnDefs"
+               [animateRows]="true"
+               [enableRangeSelection]="true"                 
+               [rowData]="group.value"
+               [rowGroupPanelShow]="mpTG.rowGroupPanelShow"
+               rowSelection="multiple"
+               pagination
+               paginationPageSize="1000"
+               [suppressDragLeaveHidesColumns]="true"
+               [suppressMakeColumnVisibleAfterUnGroup]="true"
+               [groupIncludeFooter]="true"
+               [groupIncludeTotalFooter]="true"
+               (gridReady)="onGridReady($event)"
+               ></ag-grid-angular>              
+            </div>
+         </mat-expansion-panel>
+      </mat-accordion>
+   <br>
+</div>
+ 
+ 
+<div style="width: 70%; margin: auto;">  
+ <mat-accordion>
+    <mat-expansion-panel style="background: linear-gradient(45deg, #3bade3 0%, #576fe6 25%, #9844b7 51%, #ff357f 100%);">
+       <mat-expansion-panel-header style="color:white; font-size:x-large;">
+          All Requests of all Process
+             &nbsp; &nbsp; 
+             <span>(Total:{{allWF.length}})</span>
+       </mat-expansion-panel-header>
+       <div class="panel-content">
+          <ag-grid-angular
+          style="width: 100%; height: 300px;"
+          class="ag-theme-alpine"
+          [defaultColDef]="mpTG.defaultColDef"
+          [columnDefs]="allMpTg.columnDefs"
+          [animateRows]="true"
+          [enableRangeSelection]="true"  
+          [rowData]="allWF"
+          [rowGroupPanelShow]="mpTG.rowGroupPanelShow"
+          rowSelection="multiple"
+          pagination
+          paginationPageSize="1000"
+          [suppressDragLeaveHidesColumns]="true"
+          [suppressMakeColumnVisibleAfterUnGroup]="true"
+          [groupIncludeFooter]="true"
+          [groupIncludeTotalFooter]="true"
+          (gridReady)="onGridReady($event)"
+          ></ag-grid-angular>
+       </div>
+    </mat-expansion-panel>
+ </mat-accordion>
+</div> 
+ 
+<br>

@@ -1,0 +1,95 @@
+<style>
+    .flxContainer {
+        display: flex; /* or inline-flex */
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        }
+
+        .flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+}
+
+        .wrap    { 
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        }
+</style>
+
+
+<form [formGroup]="_form">
+	<!-- <fieldset> -->
+		<!-- <legend>{{formLabel}}</legend> -->
+		<div FxLayout="column">
+      
+      <!-- <app-myassetdashboard-actionbuttonsbar (remove)="remove.emit()"
+                              (addGroup)="_addGroup()"
+                              (addCondition)="_addCondition()">
+      </app-myassetdashboard-actionbuttonsbar> -->
+
+      <br>
+        <!-- <ng-container>
+            <app-paramselectfield [formGroup]="_form" [formControlName]="formControlName"></app-paramselectfield>
+        </ng-container> -->
+        <!-- <div style="display: flex;">
+            <div fxLayout="row">
+                <div fxFlex="30" style="height: 600px; width: 200px;" > -->
+                    <ng-container formArrayName="Samples" *ngIf="_form.get('Samples').value.length>1; else showSingleItem;">
+                        <div class="flex-container wram" fxLayoutGap="20px" style="flex-wrap: wrap !important" fxLayoutAlign="space-evenly center" >
+                            <div *ngFor="let c of _conditionsFormArray?.controls; index as j" >
+                                <div fxFlex ="1 1 30" >
+                                    <app-itassetitems  
+                                        (remove)="_deleteCondition(j)"
+                                        [formControlName]="j" 
+                                        [formLabel]="'Asset ' + (j+1)"
+                                        [formGroup]="c">
+                                    </app-itassetitems>
+                                </div>                                        
+                            </div>                                   
+                        </div>
+                    </ng-container>
+                    <ng-template #showSingleItem>
+                        <ng-container formArrayName="Samples">
+                            <div class="flex-container wram" fxLayoutGap="20px" style="flex-wrap: wrap !important" fxLayoutAlign="space-evenly center" >
+                                <div *ngFor="let c of _conditionsFormArray?.controls; index as j" >
+                                    <div fxFlex ="1 1 30" >
+                                        <app-itassetsingleitem  
+                                        (remove)="_deleteCondition(j)"
+                                        [formControlName]="j" 
+                                        [formLabel]="'Asset ' + (j+1)"
+                                        [formGroup]="c">
+                                    </app-itassetsingleitem>
+                                    </div>                                
+                                </div>                           
+                            </div>
+                        </ng-container>
+                    </ng-template>
+                    
+                <!-- </div>
+            </div>
+        </div> -->
+        
+            
+			
+
+			<ng-container formArrayName="TestParameters">                
+                <app-myassetdashboard-groupcontrol *ngFor="let s of _groupsFormArray?.controls; index as i"
+                                    (remove)="_deleteGroupFromArray(i)" 
+                                    [formControlName]="i"
+                                    [formLabel]="'Nested TestParameter '+ (i + 1) + ':'">
+                </app-myassetdashboard-groupcontrol>
+			</ng-container>
+
+		</div>
+	<!-- </fieldset> -->
+</form>

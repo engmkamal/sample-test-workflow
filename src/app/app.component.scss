@@ -1,0 +1,95 @@
+//@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+
+    // mat-form-field {
+    //     /* Changes the input styling to just about nothing so that button styling can take over */
+    //     font-size: 12px;
+    //     margin-top: -25px;
+    //     height: 60px;
+    // }
+
+    // mat-select {
+    //     font-size: 12px;
+    //    margin-top: 0px;
+    // }    
+
+    .reportTxt {
+        border: none;
+        background: transparent;
+        color: Navy
+    }
+    
+    // ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {    
+    //     height: 40px;
+    //     margin-top: -12px;
+    // }
+    
+    table,
+    th,
+    td {
+        border: 1px solid black;
+    }
+    
+    .div-outer-table {
+        overflow-x: scroll;
+        display: inline-grid;
+    }
+    
+    label {
+        color: Navy;
+        font-family: 'arial';
+    }
+    
+
+    
+    .div-outer-table {
+        overflow-x: scroll;
+        display: inline-grid;
+    }
+    
+    .readOnly {
+        border: none;
+        background: transparent;
+        color: Navy;
+    }
+    
+    .matFld {
+        color: Navy;
+        font-size: 12px;
+        height: 30px;
+    }
+    
+    .pTxt {
+        color: white;
+        margin-left: 35px;
+        font-family: 'arial';
+        font-size: 20pt;
+    }
+    
+    .divBg {
+        background-color: whitesmoke;
+        padding: 15px;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    
+    .matFldMarg {
+        color: Navy;
+        font-size: 12px;
+     }
+    
+
+    ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+        /* remove border if needed  */
+        /* color: transparent !important;  */
+        height: 40px;
+        //margin-top: 8px;
+    }
+
+    ::ng-deep .mat-form-field-infix{
+        margin-top: -12px; 
+    }
+
+    ::ng-deep .mat-form-field{
+        margin-top: -15px; 
+    }

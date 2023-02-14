@@ -1,0 +1,29 @@
+div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .itemRow {
+    align-items: baseline;
+ }
+
+ .frmCont {
+    display: flex;
+    /* or inline-flex */
+ }
+
+ .frmDiv {
+    flex-direction: column;
+ }
+
+ .mFrmFld {
+  color:Navy;
+  font-size: 12px;
+  height: 55px;
+ }
+
+//  mat-form-field {      
+//   font-size: 12px;
+//   margin-top: -25px;
+//   height: 55px;
+// }

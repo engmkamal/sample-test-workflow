@@ -1,0 +1,117 @@
+
+<!-- <link href="https://unpkg.com/@angular/material/prebuilt-themes/indigo-pink.css" rel="stylesheet"> -->
+<ng-container *ngIf="(requestInfo.uId == ''); else viewRequestMode">
+    <app-sampletestreq [requestInfo]="requestInfo" (outputToParent)="GetOutputVal($event)"
+        (btnClickAction)="getBtnClickAction($event)"></app-sampletestreq>
+</ng-container>
+
+<ng-template #viewRequestMode>
+    <ng-container *ngIf="(requestInfo.readMode == 'request'); else viewReadMode">
+        <app-sample [requestInfo]="requestInfo" (outputToParent)="GetOutputVal($event)"
+                    (btnClickAction)="getBtnClickAction($event)"></app-sample>
+    </ng-container>
+
+    <ng-template #viewReadMode>
+        <ng-container *ngIf="(requestInfo.readMode == 'feedback'); else nonFeedback">
+            <app-customerfeedbackst [rating]="rating" [starCount]="starCount" [color]="starColor" (ratingUpdated)="onRatingChanged($event)" 
+            [requestInfo]="requestInfo" (outputToParent)="GetOutputVal($event)"
+            (btnClickAction)="getBtnClickAction($event)"></app-customerfeedbackst>
+        </ng-container>
+    
+        <ng-template #nonFeedback>
+            <ng-container *ngIf="(requestInfo.readMode == 'read'); else printApplication">
+                <app-sampletestreport [requestInfo]="requestInfo" (outputToParent)="GetOutputVal($event)"
+                    (btnClickAction)="getBtnClickAction($event)"></app-sampletestreport>
+            </ng-container>
+        
+            <ng-template #printApplication>
+                <ng-container
+                *ngIf="(requestInfo.readMode == 'print'); else updateApplication">
+                <app-reportprint [requestInfo]="requestInfo" (outputToParent)="GetOutputVal($event)"
+                    (btnClickAction)="getBtnClickAction($event)"></app-reportprint>
+                </ng-container>
+        
+                <ng-template #updateApplication>
+                    <ng-container
+                        *ngIf="(Status == 'Submitted' || Status =='PickedUp' || Status == 'PartiallyReported' ); else partialUpdate">
+                        <app-labresult *ngFor="let requestInfo of requestInfo.RnDLabTest;" [requestInfo]="requestInfo" (outputToParent)="GetOutputVal($event)"
+                            (btnClickaction)="getBtnClickAction($event)"></app-labresult>
+                    </ng-container>
+            
+                    <ng-template #partialUpdate>
+                        <ng-container *ngIf="(Status == 'Reported'); else viewApplication">
+                            <app-sampletestreport [requestInfo]="requestInfo" (outputToParent)="GetOutputVal($event)"
+                                (btnClickAction)="getBtnClickAction($event)"></app-sampletestreport>
+                        </ng-container>
+            
+                        <ng-template #viewApplication>
+                            <ng-container>
+                                <app-testresult [requestInfo]="requestInfo" (outputToParent)="GetOutputVal($event)"
+                                    (btnClickaction)="getBtnClickAction($event)"></app-testresult>
+                            </ng-container>
+                        </ng-template>
+                    </ng-template>
+                </ng-template>
+            </ng-template>
+        
+        </ng-template>
+    
+        
+        
+    
+    </ng-template>
+</ng-template>
+
+<ng-template #viewReadMode>
+    <ng-container *ngIf="(requestInfo.readMode == 'feedback'); else nonFeedback">
+        <app-customerfeedbackst [rating]="rating" [starCount]="starCount" [color]="starColor" (ratingUpdated)="onRatingChanged($event)" 
+        [requestInfo]="requestInfo" (outputToParent)="GetOutputVal($event)"
+        (btnClickAction)="getBtnClickAction($event)"></app-customerfeedbackst>
+        
+        
+        <!-- <app-sampletestreport [requestInfo]="requestInfo" (outputToParent)="GetOutputVal($event)"
+            (btnClickAction)="getBtnClickAction($event)"></app-sampletestreport> -->
+    </ng-container>
+
+    <ng-template #nonFeedback>
+        <ng-container *ngIf="(requestInfo.readMode == 'read'); else printApplication">
+            <app-sampletestreport [requestInfo]="requestInfo" (outputToParent)="GetOutputVal($event)"
+                (btnClickAction)="getBtnClickAction($event)"></app-sampletestreport>
+        </ng-container>
+    
+        <ng-template #printApplication>
+            <ng-container
+            *ngIf="(requestInfo.readMode == 'print'); else updateApplication">
+            <app-reportprint [requestInfo]="requestInfo" (outputToParent)="GetOutputVal($event)"
+                (btnClickAction)="getBtnClickAction($event)"></app-reportprint>
+            </ng-container>
+    
+            <ng-template #updateApplication>
+                <ng-container
+                    *ngIf="(Status == 'Submitted' || Status =='PickedUp' || Status == 'PartiallyReported' ); else partialUpdate">
+                    <app-labresult *ngFor="let requestInfo of requestInfo.RnDLabTest;" [requestInfo]="requestInfo" (outputToParent)="GetOutputVal($event)"
+                        (btnClickaction)="getBtnClickAction($event)"></app-labresult>
+                </ng-container>
+        
+                <ng-template #partialUpdate>
+                    <ng-container *ngIf="(Status == 'Reported'); else viewApplication">
+                        <app-sampletestreport [requestInfo]="requestInfo" (outputToParent)="GetOutputVal($event)"
+                            (btnClickAction)="getBtnClickAction($event)"></app-sampletestreport>
+                    </ng-container>
+        
+                    <ng-template #viewApplication>
+                        <ng-container>
+                            <app-testresult [requestInfo]="requestInfo" (outputToParent)="GetOutputVal($event)"
+                                (btnClickaction)="getBtnClickAction($event)"></app-testresult>
+                        </ng-container>
+                    </ng-template>
+                </ng-template>
+            </ng-template>
+        </ng-template>
+    
+    </ng-template>
+
+    
+    
+
+</ng-template>

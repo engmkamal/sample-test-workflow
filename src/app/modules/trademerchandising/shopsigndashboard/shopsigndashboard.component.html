@@ -1,0 +1,23 @@
+<div placeholder="Search with any word..." style="margin: 10px 10px">
+    <input type="text" id="filter-text-boxATM" placeholder="Search with any word..." (keyup)="quickSearch()" [(ngModel)]="txtOfQuickSearchInpFld" style="height:23px;"/>
+    &nbsp;
+    <label style="font-size:16pt; font-family: Arial, Helvetica, sans-serif; color: navy; cursor: pointer; margin-top: 10px;" ><b><a href="https://portal.bergerbd.com/leaveauto/SitePages/TradeMerchandisingDashboard.aspx/report">Go to Report View</a></b></label>
+</div>
+
+<div class="panel-content"> 
+    <ag-grid-angular
+    style="width: 99%; height: 500px; margin-left:5px"
+    class="ag-theme-alpine" 
+    [modules]="modules"
+    [columnDefs]="columnDefs"
+    [defaultColDef]="defaultColDef"
+    [masterDetail]="true"
+    [detailCellRenderer]="detailCellRenderer"
+    [frameworkComponents]="frameworkComponents"
+    [rowData]="rowData"
+    (gridReady)="onGridReady($event)"
+    ></ag-grid-angular>              
+    </div>
+
+
+

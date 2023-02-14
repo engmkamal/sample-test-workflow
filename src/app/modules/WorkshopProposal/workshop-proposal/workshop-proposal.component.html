@@ -1,0 +1,54 @@
+
+<!-- <p>workshop-proposal works!</p>
+<a class="nav-item nav-link" href="http://localhost:4200/graphicalview">graphicalview</a> -->
+<!-- <app-graphical-view></app-graphical-view> -->
+<!-- <a class="nav-item nav-link" href="http://localhost:4200/graphicalview">graphicalview</a> -->
+
+<router-outlet></router-outlet>
+
+<div class="page-wrapper">
+    <div style="margin: 10px 0">
+        <input type="text" id="filter-text-box" placeholder="Search with any word..." (keyup)="quickSearch()" [(ngModel)]="txtOfQuickSearchInpFld"/>
+        &nbsp;
+        <button (click)="onBtnExportDataAsExcel()">
+        Export Data As Excel
+      </button>
+    </div>
+    
+    <!-- <input type="text" id="filter-text-box" placeholder="Filter..." oninput="onFilterTextBoxChanged()" /> -->
+    <div class="grid-wrapper">
+        <ag-grid-angular
+        #agGrid
+        style="width: 100%; height: 500px;"
+        id="myGrid"
+        class="ag-theme-alpine"
+        row-animation
+        pagination  
+        [autoGroupColumnDef]="autoGroupColumnDef"
+        [rowData]="rowData"
+        [columnDefs]="columnDefs"
+        rowSelection="multiple"
+        [animateRows]="true"
+        [rowGroupPanelShow]="rowGroupPanelShow"
+        [modules]="modules"      
+        [defaultColDef]="defaultColDef"      
+        [suppressDragLeaveHidesColumns]="true"
+        [suppressMakeColumnVisibleAfterUnGroup]="true"
+        [groupIncludeFooter]="true"
+        [groupIncludeTotalFooter]="true"
+        [groupSelectsChildren]="true"
+        [groupSelectsFiltered]="true"
+        [suppressAggFuncInHeader]="true"
+        [suppressRowClickSelection]="true"
+        [enableRangeSelection]="true" 
+        [rememberGroupStateWhenNewData]="true"
+        [masterDetail]="true"
+        [keepDetailRows]="true"            
+        [detailCellRendererParams]="detailCellRendererParams"
+        [sideBar]="sideBar"
+        [statusBar]="statusBar"
+        (gridReady)="onGridReady($event)"  
+        >
+        </ag-grid-angular>
+    </div>
+</div>

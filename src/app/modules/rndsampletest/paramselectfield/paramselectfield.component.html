@@ -1,0 +1,85 @@
+<ng-container [formGroup]="formGroup">
+    <div class="fix-this" style="width: 80%; margin: auto;">
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="5px">
+            <div fxFlex="1 1 20" fxLayoutAlign="space-between Center">
+                <div fxFlex="1 1 98">
+                    <mat-label>Test Parameter</mat-label>
+                    <label style="color:red">*</label>
+                </div>
+                <div fxFlex="1 1 2">
+                    <mat-label>:</mat-label>
+                </div>
+            </div>
+            <div fxFlex="1 1 79" fxLayout="row" fxLayoutAlign="space-between Center">
+                <div fxFlex="1 1 99" class="material">
+                    <!-- <ng-select formControlName="Title" [items]="testParameters"
+                    bindLabel="Title"
+                    groupBy="RnDSection"
+                    placeholder="Select Test Parameter"                
+                    [multiple]="false"
+                    [(ngModel)]="selectedTestTitle"></ng-select> -->
+
+                    <mat-form-field appearance="outline" fxFlex="100" class="mFFldMargin">
+                        <mat-select formControlName="Title" required class="mSelectMargin"
+                            (selectionChange)="onTestParamSelect($event.value)">
+                            <mat-optgroup *ngFor="let testParameter of testParameters"
+                                [label]="testParameter.RnDSection" [disabled]="testParameter.disabled">
+                                <mat-option *ngFor="let tp of testParameter.Parameters" [value]="tp">
+                                    {{tp.Title}}
+                                </mat-option>
+                            </mat-optgroup>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="0px">
+            <div fxFlex="1 1 20" fxLayoutAlign="space-between Center">
+                <div fxFlex="1 1 98">
+                    <label>Test Method</label>
+                </div>
+                <div fxFlex="1 1 2">
+                    <label>:</label>
+                </div>
+            </div>
+            <div fxFlex="1 1 79" fxLayout="row" fxLayoutAlign="space-between Center">
+                <div fxFlex="1 1 99" class="lblMargin">
+                    {{selectedTestMethod}}
+                </div>
+            </div>
+        </div>
+
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="0px">
+            <div fxFlex="1 1 20" fxLayoutAlign="space-between Center">
+                <div fxFlex="1 1 98">
+                    <label>Sample Requirement</label>
+                </div>
+                <div fxFlex="1 1 2">
+                    <label>:</label>
+                </div>
+            </div>
+            <div fxFlex="1 1 79" fxLayout="row" fxLayoutAlign="space-between Center">
+                <div fxFlex="1 1 99" class="lblMargin">
+                    {{sampleReq}}
+                </div>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="0px">
+            <div fxFlex="1 1 20" fxLayoutAlign="space-between Center">
+                <div fxFlex="1 1 98">
+                    <label>Required Days for Report</label>
+                </div>
+                <div fxFlex="1 1 2">
+                    <label>:</label>
+                </div>
+            </div>
+            <div fxFlex="1 1 79" fxLayout="row" fxLayoutAlign="space-between Center">
+                <div fxFlex="1 1 99" class="lblMargin">
+                    {{requiredDay}}
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+</ng-container>

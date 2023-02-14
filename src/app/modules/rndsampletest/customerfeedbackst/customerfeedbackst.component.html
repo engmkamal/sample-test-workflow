@@ -1,0 +1,86 @@
+
+<div style="width: 880px; margin: auto;">
+    <h2>Customer Feedback Form</h2>
+    <p>Dear Customer: </p> 
+    <p>To improve our Testing & Calibration services, we seek your valuable suggestion, comment and assessment in connection with our efforts providing customer satisfaction and confidentiality.</p>
+    
+    <p>This feedback form may take hardly (1-2) minutes to complete.</p>
+    <p>*Rating: Not Satisfied-1, Satisfied-2, Good-3, Very Good-4, Excellent-5 </p>
+    <p>BPBL/QF/08</p>
+</div>
+
+  <div style="width: 880px; margin: auto;" class="fix-this" id="report">
+    <div style="width: 100%; margin: auto; background-color: #d9dbdf;">
+        <form [formGroup]="_form" (ngSubmit)="onSubmitBtn()">
+            <br>
+            <div style="background-color: whitesmoke; padding: 15px; margin-left: 15px; margin-right: 15px;" formGroupName="Customerfeedback">
+                <p>1. Availability of information regarding Laboratory service <span style="color:red">*</span></p>
+                <button mat-icon-button *ngFor="let ratingId of infoAvailability;index as i" [id]="'star_'+i" (click)="onClick(i+1, 'infoAvailability')" [matTooltip]="ratingId+1" matTooltipPosition="above">
+                    <mat-icon [style.color]="infoAvaCol">
+                    {{infoAvailabilityR(i)}}
+                    </mat-icon>
+                </button>
+
+                <p>2. Response against quires of service<span style="color:red">*</span></p>
+                <button mat-icon-button *ngFor="let ratingId of serviceResponse;index as i" [id]="'star_'+i" (click)="onClick(i+1, 'serviceResponse')" [matTooltip]="ratingId+1" matTooltipPosition="above">
+                    <mat-icon [style.color]="serResCol">
+                    {{serviceResponseR(i)}}
+                    </mat-icon>
+                </button>
+
+                <p>3. Response of lab representative to provide clarifications<span style="color:red">*</span></p>
+                <button mat-icon-button *ngFor="let ratingId of repClarification;index as i" [id]="'star_'+i" (click)="onClick(i+1, 'repClarification')" [matTooltip]="ratingId+1" matTooltipPosition="above">
+                    <mat-icon [style.color]="repClarCol">
+                    {{repClarificationR(i)}}
+                    </mat-icon>
+                </button>
+                <p>4. Reliability of testing/calibration services rendered<span style="color:red">*</span></p>
+                <button mat-icon-button *ngFor="let ratingId of servReliability;index as i" [id]="'star_'+i" (click)="onClick(i+1, 'servReliability')" [matTooltip]="ratingId+1" matTooltipPosition="above">
+                    <mat-icon [style.color]="servRelCol">
+                    {{servReliabilityR(i)}}
+                    </mat-icon>
+                </button>
+                <p>5. Mode of presentation of the result in the test/calibration report<span style="color:red">*</span></p>
+                <button mat-icon-button *ngFor="let ratingId of presentationMode;index as i" [id]="'star_'+i" (click)="onClick(i+1, 'presentationMode')" [matTooltip]="ratingId+1" matTooltipPosition="above">
+                    <mat-icon [style.color]="preModCol">
+                    {{presentationModeR(i)}}
+                    </mat-icon>
+                </button>
+                <p>6. Suggestions for improvement</p>
+                <div>
+                    
+                    <ng-container *ngIf=" ! showFeedbackSubmit(); else suggestionTxtBx">
+                        <mat-form-field appearance="fill" fxFlex="100" class="mFrmFld">
+                            <textarea matInput formControlName="Suggestion" cdkTextareaAutosize
+                               cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5" #suggestion
+                               maxlength="300" readonly></textarea>
+                         </mat-form-field>
+                      
+                    </ng-container>
+                    <ng-template #suggestionTxtBx>
+                        <mat-form-field appearance="fill" fxFlex="100" class="mFrmFld">
+                            <textarea matInput formControlName="Suggestion" cdkTextareaAutosize
+                               cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5" #suggestion
+                               maxlength="300"></textarea>
+                            <mat-hint align="end">{{suggestion.value?.length || 0}}/300</mat-hint>
+                         </mat-form-field>
+                    </ng-template>
+                 </div>
+                <mat-error *ngIf="starCount == null || starCount == 0">
+                    Star count is <strong>required</strong> and cannot be zero
+                </mat-error>  
+                
+                <div *ngIf="showFeedbackSubmit()">
+                    <button mat-button type="submit" class="mat-raised-button mat-primary"
+                        (click)="approverAction('FeedbackSubmit')">Submit</button>
+    
+                </div>
+            </div>
+
+           
+            <br/>
+        </form>
+        <br>
+        
+    </div>
+</div>

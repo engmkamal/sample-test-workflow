@@ -1,0 +1,171 @@
+<div *ngIf="requestInfo.Status == 'Completed' || requestInfo.Status == 'FeedbackSubmitted' ">    
+    <p style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; margin-left: 185px;"><b><a href="https://portal.bergerbd.com/leaveauto/SitePages/SampleTest.aspx/?UniqueId={{requestInfo.uId}}&mode=print">Go to Print View</a></b></p>
+</div>
+<br/>
+
+<div style="width: 880px; margin: auto;" class="fix-this" id="report">
+    <div style="width: 100%; margin: auto; background-color: #d9dbdf;">
+        <form [formGroup]="_form" (ngSubmit)="onSubmitBtn()">
+            <br>
+            <div style="background-color: whitesmoke; padding: 15px; margin-left: 15px; margin-right: 15px;">
+                <app-reportheader *ngIf="requestInfo.Status == 'Completed'"></app-reportheader>
+                <div
+                    style="background-color: whitesmoke; margin-left: 15px; margin-right: 15px; font-weight: bold; font-size: 16pt;">
+                    <br/> 
+                    <div style="color:Navy">Test Report No. : <input formControlName="ReportNo" style="color:Navy; min-width: 300px; border: none; font-weight: bolder; font-size: 14pt;" readonly disabled ></div>
+                    <div style="color:Navy">Report Date : <input formControlName="ReportReleaseDate" style="color:Navy; min-width: 200px; border: none; font-weight: bolder; font-size: 13pt" readonly disabled><span id="rDate" style="display: none;">{{date | date}}</span></div>
+                </div>
+            </div>
+            <div style="background-color: whitesmoke; padding: 15px; margin-left: 15px; margin-right: 15px;">
+                <app-requestor [formGroup]="_form" [requestorsInfo]="requestorsInfo"></app-requestor>
+            </div>
+            <br>
+            <div style="background-color: whitesmoke; padding: 15px; margin-left: 15px; margin-right: 15px;">
+                
+                <div fxFlex="1 1 100" fxLayout="row" fxLayoutAlign="space-between start" style="margin-top: 20px;">
+                    
+                    <div fxFlex="1 1 15">
+                        <mat-label>Note</mat-label>
+                    </div>
+                    <div fxFlex="1 1 2">
+                        <mat-label>:</mat-label>
+                    </div>
+                    <div fxFlex="1 1 83">
+                        <ng-container *ngIf ="(requestInfo.readMode == 'read' || requestInfo.Status == 'Completed'); else showSmplTxt">
+                            <label style="color: navy; font-family: Arial, Helvetica, sans-serif; font-size: 10pt;">{{requestInfo.RnDLabTest.ReportNote}}</label>                            
+                        </ng-container>
+                        <ng-template #showSmplTxt>
+                            <mat-form-field appearance="fill" fxFlex="100" 
+                                style="margin-top: -30px; color:Navy; height: 125px !important; ">
+                                <textarea matInput formControlName="ReportNote" cdkTextareaAutosize cdkAutosizeMinRows="1"
+                                    cdkAutosizeMaxRows="3" #note maxlength="500" 
+                                    style="height: 100px !important; background: white;" placeholder="Please type final note here..."></textarea>
+                                <mat-hint align="end">{{note.value?.length || 0}}/500</mat-hint>
+                            </mat-form-field>
+                        </ng-template>
+                        <br/>
+                        <br/>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div style="background-color: whitesmoke; padding: 15px; margin-left: 15px; margin-right: 15px;">
+                <div fxLayout="row" fxFlex="1 1 100" style="border: 2px solid rgb(189, 189, 243); border-radius: 5px;">
+                    <div fxLayout="row" fxFlex="1 1 40" fxFlex.sm="1 1 40" fxFlex.xs="1 1 40"
+                        style="border: 2px solid rgb(217, 217, 241); border-radius: 3px 0px 0px 3px; padding: 20px;">
+                        <div fxLayout="column" fxFlex="100" fxLayoutAlign="center" fxLayoutGap="0px"
+                            style="margin-left: 2px; margin: auto; font-weight: bold;">
+                            <div fxLayout="row" fxFlex="100" style="font-size: 11pt;">
+                                Sign for and on behalf of
+                            </div>
+                            <div fxLayout="row" fxFlex="100" style="font-size: 12pt;">
+                                Research & Development Center,
+                            </div>
+                            <div fxLayout="row" fxFlex="100" style="font-size: 12pt;">
+                                Berger Paints Bangladesh Limited
+                            </div>
+                            <div *ngIf="requestInfo.Status == 'Completed'"><img src="{{domain}}/Style%20Library/SampleTest/SampleTestV1/assets/SampleTestWF/rsz_signature_23092020.jpg"
+                                style="height: 70px; width: 100px; margin: 5px;" /></div>                            
+                            <!-- <div style="background-image: url(https://portal.bergerbd.com/Style%20Library/SampleTest/SampleTestV1/assets/SampleTestWF/rsz_signature_23092020.jpg); height: 70px; width: 100px; margin: 5px;"></div> -->
+                            <div fxLayout="row" fxFlex="100" style="font-size: 11pt;">
+                                Quality Manager
+                            </div>                         
+
+                        </div>
+                    </div>
+                    <div fxLayout="row" fxFlex="1 1 30" fxFlex.sm="1 1 30" fxFlex.xm="1 1 30"
+                        style="border: 2px solid rgb(217, 217, 235);"> 
+                        <div fxLayout="column" fxFlex="100" fxLayoutAlign="center none" style="margin-left: 2px;">                            
+                            <!--          <div *ngIf="requestInfo.Status == 'Completed' && requestInfo.RnDLabTest.TestParameters[0].Title.Title != 'Solvent/Monomer GC Analysis' && requestInfo.RnDLabTest.TestParameters[0].Title.Title != 'Particle size distribution of Latex' && requestInfo.RnDLabTest.TestParameters[0].Title.Title != 'MFFT of Latex'">
+                                <img src="{{domain}}/Style%20Library/SampleTest/SampleTestV1/assets/SampleTestWF/ilac.bmp"
+                                style="height: 150px; width: 150px; margin: 5px; display: block; margin: auto auto;" />
+                            </div>               -->
+                        </div>
+                        
+                    </div>
+                    <div fxLayout="row" fxFlex="1 1 30" fxFlex.sm="1 1 35" fxFlex.xm="1 1 35"
+                        style="border: 2px solid rgb(217, 217, 238); border-radius: 0px 3px 3px 0px; ">
+                        <div fxLayout="column" fxFlex="100" fxLayoutAlign="center none" style="margin-left: 2px;">                            
+                            <div *ngIf="requestInfo.Status == 'Completed' && requestInfo.RnDLabTest.TestParameters[0].Title.Title != 'Solvent/Monomer GC Analysis' && requestInfo.RnDLabTest.TestParameters[0].Title.Title != 'Particle size distribution of Latex' && requestInfo.RnDLabTest.TestParameters[0].Title.Title != 'MFFT of Latex'"><img src="{{domain}}/Style%20Library/SampleTest/SampleTestV1/assets/SampleTestWF/nabl.bmp"
+                                style="height: 170px; width: 130px; margin: 5px; display: block; margin: auto auto;"/></div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <div style="background-color: whitesmoke; padding: 15px; margin-left: 15px; margin-right: 15px;">
+                <p>
+                    Test report is made solely on the basis of information & materials supplied by client. Any
+                    unauthorized alteration, forgery or falsification of the content or appearance of this document is
+                    unlawful and offenders may be prosecuted to the fullest extent of the law. This test report does not
+                    entitle to carry any safety mark on this or similar products. Customer has to raise objection (if
+                    any) within 15 days from date of issuance of this report to notify us of any material error or
+                    omission caused in lab testing process, however, that such notice shall be in writing and shall
+                    specifically address the issue you wish to raise. A failure to raise such issue within the
+                    prescribed time shall constitute you unqualified acceptance of the completeness of this report, the
+                    tests conducted and the correctness of the report contents.
+                </p>
+            </div>
+
+            <div style="background-color: whitesmoke; padding: 15px; margin-left: 15px; margin-right: 15px;">
+
+                BPBL/QF/28 – Test Report
+            </div>
+            <br>
+            <p style="page-break-after: always;"></p>
+
+            <div style="background-color: whitesmoke; padding: 15px; margin-left: 15px; margin-right: 15px;">
+                <div>
+                    <!-- <section class="top-bar">
+                        <button type="button" label="Add Statement" (click)="_buildFormFromData()">
+                            build form based on data
+                        </button>
+                        <button type="button" label="Add Statement" (click)="_addGroup()">add TestParameter</button>
+                    </section> -->
+
+
+                    <ng-container formArrayName="TestParameters">
+                        <ng-container *ngFor="let group of _groupsFormArray?.controls; index as i">
+                            <app-group-control (remove)="_delete(i)" [formControlName]="i"
+                                [formLabel]="'TestParameter '+ (i + 1) + ':'" [requestInfo]="requestInfo">
+                            </app-group-control>
+                        </ng-container>
+                    </ng-container>
+                </div>
+                <br>
+                <br>
+            </div>
+            <p style="page-break-after: always;"></p>
+            <div *ngIf="((requestInfo.readMode =='read' || requestInfo.readMode =='print') && requestInfo.Status =='Completed') || (requestInfo.readMode =='' && (requestInfo.Status =='Completed' || requestInfo.Status =='PickedUp' || requestInfo.Status =='ResultSubmit' || requestInfo.Status =='PartiallyReported' || requestInfo.Status =='Reported' || requestInfo.Status =='FeedbackSubmitted'))">
+                <ng-container *ngFor="let testParameter of requestInfo.RnDLabTest.TestParameters; index as i" >
+                    <!-- <app-group-control (remove)="_delete(i)" [formControlName]="i"
+                        [formLabel]="'TestParameter '+ (i + 1) + ':'">
+                    </app-group-control> -->
+                    <app-testresultinputfields [requestInfo]="requestInfo" [testParameter]="testParameter">
+                    </app-testresultinputfields>
+                </ng-container>
+                <br>
+            </div>
+                        
+
+            <div style="background-color: whitesmoke; padding: 15px; margin-left: 15px; margin-right: 15px;" *ngIf="requestInfo.readMode !='read' && requestInfo.readMode !='print'">
+                <div fxLayout="row" fxFlex="1 1 100" *ngIf="requestInfo.Status != 'Completed'">
+                    <button mat-button type="submit" class="mat-raised-button mat-primary"
+                        (click)="approverAction('Completed')">Report Release</button>
+
+                </div>
+            </div>
+        </form>
+        <br>
+        
+    </div>
+</div>
+
+
+<div *ngIf="requestInfo.Status == 'Completed' || requestInfo.Status == 'FeedbackSubmitted' ">
+    <p style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; margin-left: 185px;"><b><a href="https://portal.bergerbd.com/leaveauto/SitePages/SampleTest.aspx/?UniqueId={{requestInfo.uId}}&mode=print">Go to Print View</a></b></p>
+</div>
+<br/>

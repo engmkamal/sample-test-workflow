@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\modules",
+    "\\src\\app\\modules\\WorkshopProposal",
+    "\\src\\app\\modules\\WorkshopProposal\\workshop-proposal",
+    "\\src\\app\\shared"
+  ],
+  "SelectedNode": "\\src\\app\\modules\\WorkshopProposal\\workshop-proposal\\workshop-proposal.component.ts",
+  "PreviewInSolutionExplorer": false
+}

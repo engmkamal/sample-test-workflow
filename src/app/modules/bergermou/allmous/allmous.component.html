@@ -1,0 +1,122 @@
+<style>
+    .container {
+     display:flex;
+     /*flex-direction:row;   */
+     flex-grow:1; /* default 0 */
+     flex-wrap: wrap;
+     justify-content: left; 
+    }
+    .header {
+    font-family: Arial, Helvetica, sans-serif;
+    color:royalblue;
+    }
+
+</style>
+
+
+<div style="width: 90%; margin: auto;">
+<div 
+   *ngFor="let group of allGroups" 
+   style="margin: auto;">
+      <mat-accordion>
+         <mat-expansion-panel style="background: rgb(231, 229, 229);" [expanded]="true">
+            <mat-expansion-panel-header style="color:white;">
+               <span style="font-size:x-large; color:royalblue">{{group.key}}&nbsp; &nbsp;(Total:{{group.value.length}})</span>
+            </mat-expansion-panel-header>
+            
+
+            <div class="container" style="background-color: aliceblue; width: 85%">    
+                <app-cardtemplet1 *ngFor="let cardInfo of group.value" [cardInfo]="cardInfo">
+                    
+                </app-cardtemplet1>
+            </div>
+         </mat-expansion-panel>
+      </mat-accordion>
+   <br>
+</div>
+</div>
+
+
+
+<!-- <div *ngFor="let group of allGroups" >
+    <h2 class="header">{{group.key}}&nbsp; &nbsp;(Total:{{group.value.length}})</h2>
+    <div class="container">    
+        <app-cardtemplet1 *ngFor="let cardInfo of group.value" [cardInfo]="cardInfo">
+            
+        </app-cardtemplet1>
+    </div>
+</div> -->
+
+
+
+    <!-- <div *ngIf="data5.OrganizationType == 'Electronics'">
+        <h2 class="header">{{group.key}}&nbsp; &nbsp;(Total:{{group.value.length}})</h2>
+        <div class="container">
+            <app-cardtemplet1 *ngFor="let cardInfo of data5" [cardInfo]="cardInfo">
+                
+            </app-cardtemplet1>
+        </div>
+    <div> -->
+
+
+
+
+<!-- <div *ngIf="(filterFunction('Hotel')).length > 0">
+    <h2 class="header">Hotel:</h2>
+    <div class="container">
+        <app-cardtemplet1 *ngFor="let cardInfo of filterFunction('Hotel')" [cardInfo]="cardInfo">
+            
+        </app-cardtemplet1>
+    </div>
+<div>
+
+<div *ngIf="(filterFunction('Resort')).length > 0">
+    <h2 class="header">Resort:</h2>
+    <div class="container">    
+        <app-cardtemplet1 *ngFor="let cardInfo of filterFunction('Resort')" [cardInfo]="cardInfo">
+            
+        </app-cardtemplet1>
+    </div>
+<div>
+
+<div *ngIf="(filterFunction('General')).length > 0">
+    <h2 class="header" >General:</h2>
+    <div class="container">
+        <app-cardtemplet1 *ngFor="let cardInfo of filterFunction('General')" [cardInfo]="cardInfo">
+            
+        </app-cardtemplet1>
+    </div>
+<div>
+
+<div *ngIf="(filterFunction('Electronics')).length > 0">
+    <h2 class="header" >Electronics:</h2>
+    <div class="container">        
+        <app-cardtemplet1 *ngFor="let cardInfo of filterFunction('Electronics')" [cardInfo]="cardInfo">
+            
+        </app-cardtemplet1>
+    </div>
+<div>
+
+<div *ngIf="(filterFunction('Financial Institution')).length > 0">
+    <h2 class="header" >Financial Institution:</h2>
+    <div class="container">    
+        <app-cardtemplet1 *ngFor="let cardInfo of filterFunction('Financial Institution')" [cardInfo]="cardInfo">
+            
+        </app-cardtemplet1>
+    </div>
+<div>
+
+<div *ngIf="(filterFunction('Restaurants')).length > 0">
+    <p class="header" >Restaurants:</p>
+    <div class="container">    
+        <app-cardtemplet1 *ngFor="let cardInfo of filterFunction('Restaurants')" [cardInfo]="cardInfo">
+            
+        </app-cardtemplet1>
+    </div>
+<div>
+
+
+
+
+
+ -->

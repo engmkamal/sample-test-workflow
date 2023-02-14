@@ -1,0 +1,361 @@
+<style>   
+   /* .itemTitle{
+   background: lightblue;
+   } */
+   .itemRow{
+   align-items: baseline;
+   }
+   .frmCont {
+   display: flex; /* or inline-flex */
+   }
+   .frmDiv {        
+   flex-direction: column;
+   }
+   /* .mat-form-​field-appearance-outline .mat-form-field-outline { color: red; }
+   .alignment .mat-form-field-outline-start .alignment .mat-form-field-outline-end { border-radius: 0px !important; }
+   .mat-form-field-outline-thick { color: white; } 
+   .mat-focused .mat-form-field-label { /*change color of label */
+   /* input[type=text] 
+   { 
+   border: 0px; 
+   background: transparent;
+   user-select: none;
+   -moz-user-select: none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -o-user-select: none; 
+   }  
+   *:focus {
+   outline: none;
+   }
+   [contenteditable="true"]:focus {
+   outline: none;
+   } */
+</style>
+<div style="background-color: #014AC5;">
+   <form [formGroup]="RnDTest" (ngSubmit)="onSubmitBtn()" noval fxLayout="column" fxFlex="1 1 100" class="frmCont panel" style="background-color: #014AC5;">
+   <!-- <form [formGroup] = "itsrequest" (ngSubmit)="itsrequest.valid && onSubmitBtn(itsrequest.value)" noval fxLayout = "column" fxFlex = "1 1 100"></form> -->
+   <h2 style="color: white; margin-left: 35px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">R&D Test Request</h2>
+   <div>
+      <div class="panel-body" >
+         <div fxLayout="column">
+            <div fxLayout="column" style="background-color: whitesmoke; padding: 15px; margin-left: 15px; margin-right: 15px;">
+               <fieldset>
+                  <legend>
+                     <span>Requestor's Info</span>
+                  </legend>
+                  <div fxLayout="column" id="requestorDiv">
+                     <div fxFlex ="100" class="frmDiv" fxLayout="row" fxLayout.xs="column" fxLayoutGap="50px">
+                        <div fxFlex ="1 1 50" fxLayout="row" fxLayoutAlign="space-between start">
+                           <div fxFlex = "1 1 30" >
+                              <mat-label>Name</mat-label>
+                           </div>
+                           <div fxFlex = "1 1 5" >
+                              <mat-label>:</mat-label>
+                           </div>
+                           <div fxFlex = "1 1 65">
+                              <input class="form-control" type="text" formControlName="RequestorName" readonly disabled style="border: 0px; background: transparent; color:Navy">
+                              <!-- <label>{{RnDTest.controls.RequestorName.value}}</label>              -->
+                           </div>
+                        </div>
+                        <div fxFlex ="1 1 50" fxLayout="row" fxLayoutAlign="space-between start">
+                           <div fxFlex = "1 1 30" >
+                              <mat-label>Company</mat-label>
+                           </div>
+                           <div fxFlex = "1 1 5" >
+                              <mat-label>:</mat-label>
+                           </div>
+                           <div fxFlex = "1 1 65">
+                              <input class="form-control" type="text" formControlName="Company" readonly disabled style="border: 0px; background: transparent; color:Navy">
+                              <!-- <mat-label >{{RnDTest.controls.Company.value}}</mat-label>      -->
+                           </div>
+                        </div>
+                     </div>
+                     <div fxFlex ="100" class="frmDiv" fxLayout="row" fxLayout.xs="column" fxLayoutGap="50px">
+                        <div fxFlex ="1 1 50" fxLayout="row" fxLayoutAlign="space-between start">
+                           <div fxFlex = "1 1 30" >
+                              <mat-label>Employee Id</mat-label>
+                           </div>
+                           <div fxFlex = "1 1 5" >
+                              <mat-label>:</mat-label>
+                           </div>
+                           <div fxFlex = "1 1 65">
+                              <input class="form-control" type="text" formControlName="EmployeeId" readonly disabled style="border: 0px; background: transparent; color:Navy">
+                              <!-- <mat-label>{{RnDTest.controls.EmployeeId.value}}</mat-label>              -->
+                           </div>
+                        </div>
+                        <div fxFlex ="1 1 50" fxLayout="row" fxLayoutAlign="space-between start">
+                           <div fxFlex = "1 1 30" >
+                              <mat-label>Office</mat-label>
+                           </div>
+                           <div fxFlex = "1 1 5" >
+                              <mat-label>:</mat-label>
+                           </div>
+                           <div fxFlex = "1 1 65">
+                              <input class="form-control" type="text" formControlName="Office" readonly disabled style="border: 0px; background: transparent; color:Navy">
+                              <!-- <mat-label>{{RnDTest.controls.Office.value}}</mat-label>      -->
+                           </div>
+                        </div>
+                     </div>
+                     <div fxFlex ="100" class="frmDiv" fxLayout="row" fxLayout.xs="column" fxLayoutGap="50px">
+                        <div fxFlex ="1 1 50" fxLayout="row" fxLayoutAlign="space-between start">
+                           <div fxFlex = "1 1 30" >
+                              <mat-label>Position</mat-label>
+                           </div>
+                           <div fxFlex = "1 1 5" >
+                              <mat-label>:</mat-label>
+                           </div>
+                           <div fxFlex = "1 1 65">
+                              <input class="form-control" type="text" formControlName="Position" readonly disabled style="border: 0px; background: transparent; color:Navy">
+                              <!-- <mat-label>{{RnDTest.controls.Position.value}}</mat-label>              -->
+                           </div>
+                        </div>
+                        <div fxFlex ="1 1 50" fxLayout="row" fxLayoutAlign="space-between start">
+                           <div fxFlex = "1 1 30" >
+                              <mat-label>Department</mat-label>
+                           </div>
+                           <div fxFlex = "1 1 5" >
+                              <mat-label>:</mat-label>
+                           </div>
+                           <div fxFlex = "1 1 65">
+                              <input class="form-control" type="text" formControlName="Department" readonly disabled style="border: 0px; background: transparent; color:Navy">
+                              <!-- <mat-label>{{RnDTest.controls.Department.value}}</mat-label>      -->
+                           </div>
+                        </div>
+                     </div>
+                     <div fxFlex ="100" class="frmDiv" fxLayout="row" fxLayout.xs="column" fxLayoutGap="50px">
+                        <div fxFlex ="1 1 50" fxLayout="row" fxLayoutAlign="space-between start">
+                           <div fxFlex = "1 1 30" >
+                              <mat-label>Email</mat-label>
+                           </div>
+                           <div fxFlex = "1 1 5" >
+                              <mat-label>:</mat-label>
+                           </div>
+                           <div fxFlex = "1 1 65">
+                              <input class="form-control" type="text" formControlName="Email" readonly disabled style="border: 0px; background: transparent; color:Navy">
+                              <!-- <mat-label>{{RnDTest.controls.Email.value}}</mat-label>              -->
+                           </div>
+                        </div>
+                        <div fxFlex ="1 1 50" fxLayout="row" fxLayoutAlign="space-between start">
+                           <div fxFlex = "1 1 30" >
+                              <mat-label>Cost Center</mat-label>
+                           </div>
+                           <div fxFlex = "1 1 5" >
+                              <mat-label>:</mat-label>
+                           </div>
+                           <div fxFlex = "1 1 65">
+                              <input class="form-control" type="text" formControlName="CostCenter" readonly disabled style="border: 0px; background: transparent; color:Navy">
+                              <!-- <mat-label>{{RnDTest.controls.CostCenter.value}}</mat-label>      -->
+                           </div>
+                        </div>
+                     </div>
+                     <div fxFlex ="100" class="frmDiv" fxLayout="row" fxLayout.xs="column" fxLayoutGap="50px">
+                        <div fxFlex ="1 1 50" fxLayout="row" fxLayoutAlign="space-between start">
+                           <div fxFlex = "1 1 30" >
+                              <mat-label>Mobile</mat-label>
+                           </div>
+                           <div fxFlex = "1 1 5" >
+                              <mat-label>:</mat-label>
+                           </div>
+                           <div fxFlex = "1 1 65">
+                              <input class="form-control" type="text" formControlName="Mobile" readonly disabled style="border: 0px; background: transparent; color:Navy">
+                              <!-- <mat-label>{{RnDTest.controls.Mobile.value}}</mat-label>              -->
+                           </div>
+                        </div>
+                        <div fxFlex ="1 1 50" fxLayout="row" fxLayoutAlign="space-between start">
+                           <div fxFlex = "1 1 30" >
+                              <mat-label>RequestDate</mat-label>
+                           </div>
+                           <div fxFlex = "1 1 5" >
+                              <mat-label>:</mat-label>
+                           </div>
+                           <div fxFlex = "1 1 65">
+                              <input class="form-control" type="text" formControlName="RequestDate" readonly disabled style="border: 0px; background: transparent; color:Navy">
+                              <!-- <mat-label>{{RnDTest.controls.RequestDate.value}}</mat-label>      -->
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </fieldset>
+            </div>
+            <br>
+            <div fxLayout="column" style="background-color: whitesmoke; padding: 15px; margin-left: 15px; margin-right: 15px;">
+               <fieldset>
+                  <legend>
+                     <span>Test Info</span>
+                  </legend>
+                  <div fxLayout="column">
+                     <div fxFlex ="100" class="frmDiv" fxLayout="row" fxLayout.xs="column" fxLayoutGap="50px">
+                        <mat-label style="color:hsl(0, 93%, 32%)">*(Whole product and all samples will be tested unless specified)</mat-label>
+                     </div>
+                     <br>
+                     <br>
+                     <div fxFlex ="100" class="frmDiv itemRow" fxLayout="row" fxLayout.xs="column" fxLayoutGap="50px">
+                        <div fxFlex ="1 1 50" fxLayout="row" fxLayoutAlign="space-between Center">
+                           <div fxFlex = "1 1 30" >
+                              <mat-label>Test Parameter</mat-label>
+                              <label style="color:red">*</label>
+                           </div>
+                           <div fxFlex = "1 1 5" >
+                              <mat-label>:</mat-label>
+                           </div>
+                           <div fxFlex = "1 1 65" style="margin-top: -10px;">
+                              <ng-select formControlName="ReferenceMethod" [items]="categories"
+                              bindLabel="name"
+                              placeholder="Select Category"
+                              appendTo="body"
+                              [multiple]="true"
+                              [(ngModel)]="selected"></ng-select>
+                              <!-- <select formControlName="ReferenceMethod" style="min-width:170px; min-height: 22px;"><option value="ISO Test Method">ISO Test Method</option><option value="ASTM Test Method">ASTM Test Method</option><option value="Battery Replacement">AATCC Test Method</option></select>                               -->
+                           </div>
+                        </div>
+                        <div fxFlex ="1 1 50" fxLayout="row" fxLayoutAlign="space-between Center" class="itemRow">
+                           <div fxFlex = "1 1 30" >
+                              <button (click)="getSelectedValue()">Get Selected Values</button>
+                           </div>
+                        </div>
+                     </div>
+                     <div fxFlex ="100" class="frmDiv itemRow" fxLayout="row" fxLayout.xs="column" fxLayoutGap="50px">
+                        <div fxFlex ="1 1 50" fxLayout="row" fxLayoutAlign="space-between Center" class="itemRow">
+                           <div fxFlex = "1 1 30" >
+                              <mat-label>Test Method</mat-label>
+                           </div>
+                           <div fxFlex = "1 1 5" >
+                              <mat-label>:</mat-label>
+                           </div>
+                           <div fxFlex = "1 1 65">
+                              <input formControlName="OtherReferenceMethod" #OtherReferenceMethods style="min-width:170px; min-height: 15px;">
+                           </div>
+                        </div>
+                     </div>
+                     <br>
+                     <br>
+                     <h2>Service Description for Requestor</h2>
+                     <div fxFlex ="100" class="frmDiv itemRow" fxLayout="row" fxLayout.xs="column" fxLayoutGap="50px" formArrayName="Samples" *ngFor="let smpl of RnDTest.controls.Samples.value; let si = index;">
+                        <div fxFlex ="1 1 100" fxLayout="row">
+                           <div fxLayout="column" style="padding: 5px;" [formGroupName]="si">
+                              <fieldset>
+                                 <legend>
+                                    <span>Sample-{{si+1}}</span>
+                                 </legend>
+                                 <div *ngIf="RnDTest.controls.Samples.value.length>1" style="display:flex; justify-content:flex-end; width:100%; padding:0px; margin-top: -15px;">
+                                    <button mat-icon-button color="warn" (click)="removeSampleOnClick(si)" title="Remove this Sample">
+                                       <mat-icon style="font-weight: bold; background-color: lightblue;">clear</mat-icon>
+                                    </button>
+                                 </div>
+                                 <div fxLayout="column">
+                                    <table>
+                                       <tbody>
+                                          <tr class="form-group">
+                                             <td style="min-width:50px">
+                                                <label [attr.for]="'SampleDescription'+si">Sample Description:*</label>
+                                             </td>
+                                             <td style="min-width:100px">
+                                                <input class="form-control" type="text" formControlName="SampleDescription" required [id]="'SampleDescription'+si">
+                                             </td>
+                                          </tr>
+                                          <tr class="form-group">
+                                             <td style="min-width:50px">
+                                                <label>Appearance:*</label>
+                                             </td>
+                                             <td style="min-width: 100px;">
+                                                <input class="form-control" type="text" formControlName="Appearance" required style="min-width:100%">
+                                             </td>
+                                          </tr>
+                                          <tr class="form-group">
+                                             <td style="min-width:50px">
+                                                <label>Reference No:*</label>
+                                             </td>
+                                             <td style="min-width:100px">
+                                                <input class="form-control" type="text" formControlName="ReferenceNo" required>
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td style="min-width:50px">
+                                                <label>Sample Type:*</label>
+                                             </td>
+                                             <td >
+                                                <select formControlName="SampleTypes" style="min-width:170px; min-height: 22px;">
+                                                   <option value="Solid">Solid</option>
+                                                   <option value="Liquid">Liquid</option>
+                                                   <option value="Powder">Powder</option>
+                                                   <option value="Paste">Paste</option>
+                                                   <option value="Textile ">Textile</option>
+                                                </select>
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td style="min-width:50px">
+                                                <label>Other sample type:</label>
+                                             </td>
+                                             <td style="min-width:100px">
+                                                <input class="form-control" type="text" formControlName="OtherSampleType" required>
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td style="min-width:50px">
+                                                <label>Material Construction:</label>
+                                             </td>
+                                             <td style="min-width:100px">
+                                                <input class="form-control" type="text" formControlName="MaterialConstruction" required>
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td style="min-width:50px">
+                                                <label>Sample Quantity:</label>
+                                             </td>
+                                             <td style="min-width:100px">
+                                                <input class="form-control" type="text" formControlName="SampleQuantity" required>
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td style="min-width:50px">
+                                                <label>Specific requirement (if any):</label>
+                                             </td>
+                                             <td style="min-width:100px">
+                                                <input class="form-control" type="text" formControlName="SpecificRequirement" required>
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </fieldset>
+                           </div>
+                        </div>
+                        <br>
+                        <br>
+                     </div>
+                     <div fxFlex ="1 1 100" fxLayout = "row">
+                        <button mat-button type="submit" class="mat-raised-button mat-primary" (click)="addSampleOnClick()">Add more Sample</button>
+                     </div>
+                     <br>
+                  </div>
+               </fieldset>
+               <br>
+               <div fxLayout = "row" fxFlex ="1 1 100">
+                  <button mat-button type="submit" class="mat-raised-button mat-primary">Submit</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <br>
+   </form>
+</div>
+<!-- <div fxFlex="100%" fxLayout="column" fxLayoutGap="20px"><div fxFlex="100%" fxLayout="column"><div fxFlex="100%" fxLayout="column"><div fxFlex="100%" fxLayout="column"><div fxFlex="100%" fxLayout="row" fxLayout.xs="column" class="itemsRow" fxLayoutGap="70px"><div fxFlex="100%" fxLayout="row" class="itemRow"><div class="itemTitle">            
+   itemTitle1
+   </div><div class="itemDes">            
+   itemDes1
+   </div></div><div fxFlex="100%" fxLayout="row" class="itemRow"><div class="itemTitle">            
+   itemTitle2
+   </div><div class="itemDes">            
+   itemDes2
+   </div></div></div><div fxFlex="100%" class="itemsRow"><div fxFlex="100%" fxLayout="row" class="itemRow"><div class="itemTitle">            
+   itemTitle1
+   </div><div class="itemDes">            
+   itemDes1
+   </div></div><br><div fxFlex="100%" fxLayout="row" class="itemRow"><div class="itemTitle">            
+   itemTitle2
+   </div><div class="itemDes">            
+   itemDes2
+   </div></div></div></div></div></div></div>    -->     

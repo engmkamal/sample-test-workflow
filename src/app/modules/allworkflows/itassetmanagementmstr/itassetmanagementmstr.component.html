@@ -1,0 +1,100 @@
+<!-- <div
+*ngIf="rowData.length>0"
+style="width: 70%; margin: auto;">
+  <mat-accordion>
+     <mat-expansion-panel style="background: linear-gradient(45deg, #3bade3 0%, #576fe6 25%, #9844b7 51%, #ff357f 100%);">
+        <mat-expansion-panel-header style="color:white;">
+           <span color="red" style="font-size:large;">IT Asset Management ({{rowData.length}})</span>           
+        </mat-expansion-panel-header>
+        <div class="panel-content"> 
+           <ag-grid-angular
+           style="width: 100%; height: 300px;"
+           class="ag-theme-alpine"
+           [defaultColDef]="mpTG.defaultColDef"
+           [columnDefs]="mpTG.columnDefs"
+           [animateRows]="true"
+           [enableRangeSelection]="true"                 
+           [rowData]="rowData"
+           [rowGroupPanelShow]="rowGroupPanelShow"
+           rowSelection="multiple"
+           pagination
+           paginationPageSize="100"
+           [suppressDragLeaveHidesColumns]="true"
+           [suppressMakeColumnVisibleAfterUnGroup]="true"
+           [groupIncludeFooter]="true"
+           [groupIncludeTotalFooter]="true"
+           (gridReady)="onGridReady($event)"
+           ></ag-grid-angular>              
+        </div>
+     </mat-expansion-panel>
+  </mat-accordion>
+  <br>
+</div> -->
+
+<div placeholder="Search with any word..." style="margin: 10px 10px">
+   <input type="text" id="filter-text-box" placeholder="Search with any word..." (keyup)="quickSearch()" [(ngModel)]="txtOfQuickSearchInpFld" style="height:31px;"/>
+   &nbsp;
+   <button (click)="onBtnExportDataAsExcel()" style="margin-top:px; height:32px; background-color: #008CBA; text-decoration: none; color:white; text-align:center; vertical-align:middle" onMouseOver="this.style.backgroundColor='#4CAF50'" onMouseOut="this.style.backgroundColor='#008CBA'">        
+       Export Data As Excel
+   </button>  
+   &nbsp; &nbsp;
+      <!-- Set Row Height:
+      <button (click)="setRowHeight(35)" style="margin-top:0px; height:32px; width:40px; background-color: #008CBA; text-decoration: none; color:white; text-align:center; vertical-align:middle!important;" onMouseOver="this.style.backgroundColor='#4CAF50'" onMouseOut="this.style.backgroundColor='#008CBA'">35px</button>
+      <button (click)="setRowHeight(25)" style="margin-top:0px; height:32px; width:40px; background-color: #008CBA; text-decoration: none; color:white; text-align:center; vertical-align:middle!important;" onMouseOver="this.style.backgroundColor='#4CAF50'" onMouseOut="this.style.backgroundColor='#008CBA'">25px</button>
+      <button (click)="setRowHeight(15)" style="margin-top:0px; height:32px; width:40px; background-color: #008CBA; text-decoration: none; color:white; text-align:center; vertical-align:middle!important;" onMouseOver="this.style.backgroundColor='#4CAF50'" onMouseOut="this.style.backgroundColor='#008CBA'">15px</button> -->
+    
+   
+</div>
+
+<!-- <div class="panel-content"> 
+   <ag-grid-angular
+   style="width: 100%; height: 600px;"
+   class="ag-theme-alpine"
+   [defaultColDef]="mpTG.defaultColDef"
+   [columnDefs]="mpTG.columnDefs"
+   [animateRows]="true"
+   [enableRangeSelection]="true"                 
+   [rowData]="rowData"
+   [rowGroupPanelShow]="rowGroupPanelShow"
+   rowSelection="multiple"
+   pagination
+   paginationPageSize="100"
+   [suppressDragLeaveHidesColumns]="true"
+   [suppressMakeColumnVisibleAfterUnGroup]="true"
+   [groupIncludeFooter]="true"
+   [groupIncludeTotalFooter]="true"
+   enableCharts
+   enableRangeSelection
+   suppressRowClickSelection
+   rowSelection="multiple"
+   (gridReady)="onGridReady($event)"
+   ></ag-grid-angular>              
+</div> -->
+
+<div class="panel-content"> 
+   <ag-grid-angular
+   style="width: 99%; height: 480px; margin-left:6px"
+   class="ag-theme-alpine"
+   [defaultColDef]="mpTG.defaultColDef"
+   [columnDefs]="mpTG.columnDefs"
+   [rowGroupPanelShow]="mpTG.rowGroupPanelShow"             
+   [rowData]="rowData"
+   [suppressDragLeaveHidesColumns]="true"
+   [groupUseEntireRow] = "true"
+   pagination
+   paginationPageSize="1000"
+   [rowHeight]="rowHeight"
+   enableCharts
+   enableRangeSelection
+   suppressRowClickSelection
+   (gridReady)="onGridReady($event)"
+   ></ag-grid-angular>              
+</div>
+
+
+
+
+
+
+
+

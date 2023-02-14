@@ -1,0 +1,20 @@
+<div #card class="card-wrap" (click)="onClickOnCard(cardInfo)">
+    <div class="card" [ngStyle]="cardStyle()">
+        <div class="card-bg" [ngStyle]="cardBgTransform()">            
+            <div style="border: 2px solod; background-color:gainsboro; overflow: hidden; margin: 12px; padding: 5px; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+                <p style="padding: 5px; margin-top: 0px; height: 100px; font-family:Verdana, Geneva, Tahoma, sans-serif" [style.background-image]="'url(' + cardInfo.HomePagePicture.Url + ')'">
+                    <!-- <span style="color:rgb(245, 228, 196); margin: auto; background-color: black; opacity: 50%;">{{ cardInfo.Title }}</span>-->
+                </p>
+                <p style="background-color: seagreen; color: seashell; margin-top: -40px;" class="one-edge-shadow intro">{{ cardInfo.OrganizationName }}</p>
+                
+                <p style="background-color:white; color: green; text-align: center; align-content: flex-end;" class="one-edge-shadow intro">{{ cardInfo.Offers }}</p>                
+                <p style="text-align: right; font-size: 10pt; font-family: Arial, Helvetica, sans-serif; color: darkblue; margin-top: 5px;">Till: {{ cardInfo.ValidTill | date }} <span style="text-align: right; color: green; margin-left: 70px; font-weight: bold;">Read More ....</span></p>
+                
+                <p style="margin-top: -20px;"></p>
+                <!-- <p style="text-align: right; font-size: 10pt; font-family: Arial, Helvetica, sans-serif; color: darkblue;">Mob: {{ cardInfo.ContactNumber }}</p> -->
+                
+            </div>
+        </div>
+    </div>
+</div>
+

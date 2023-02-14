@@ -1,0 +1,19 @@
+<!-- <link href="https://unpkg.com/@angular/material/prebuilt-themes/indigo-pink.css" rel="stylesheet"> -->
+<!-- <style>			
+  .fix-this {
+      all: unset;
+  }	  
+</style> -->
+<div class="container fix-this" fxLayout="row" fxLayout.xs="column" *ngIf="requestInfo.uId == ''">
+	<!-- <button type="button" (click)="addGroup.emit()">
+    add nested TestParameter
+  </button> -->
+
+	<button type="button" (click)="addCondition.emit()">
+    Add Sample
+  </button>
+  
+	<button type="button" (click)="remove.emit()">
+    Delete Test Parameter
+  </button>
+</div>

@@ -1,0 +1,663 @@
+<style>   
+    /* .itemTitle{
+    background: lightblue;
+    } */
+    .itemRow{
+    align-items: baseline;
+    }
+    .frmCont {
+    display: flex; /* or inline-flex */
+    }
+    .frmDiv {        
+    flex-direction: row;
+    }
+    /* .mat-form-​field-appearance-outline .mat-form-field-outline { color: red; }
+    .alignment .mat-form-field-outline-start .alignment .mat-form-field-outline-end { border-radius: 0px !important; }
+    .mat-form-field-outline-thick { color: white; } 
+    .mat-focused .mat-form-field-label { /*change color of label */
+    /* input[type=text] 
+    { 
+    border: 0px; 
+    background: transparent;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none; 
+    }  
+    *:focus {
+    outline: none;
+    }
+    [contenteditable="true"]:focus {
+    outline: none;
+    } */
+ </style>
+
+<style>
+mat-form-field { /* Changes the input styling to just about nothing so that button styling can take over */
+  font-size: 8px;
+  margin-top: -12px;
+  height: 55px;
+}
+
+mat-select{
+  font-size: 12px;
+  margin-top: -25px;
+}
+
+mat-label{
+    font-size: 8pt;
+}
+
+mat-form-field > input {
+   margin-top: -25px;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+   /* remove border if needed  */
+  /* color: transparent !important;  */  
+  height: 32px; 
+  margin-top: 8px;
+}
+
+.flxContainer {
+  display: flex; /* or inline-flex */
+  flex-direction: column;
+  flex-wrap: wrap !important;
+  /* justify-content: center;
+  align-items: center; */
+}
+
+.fldValue{
+    border: 0px; background: transparent; color:Navy; font-size:8pt;
+}
+
+.cardBgndClr{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: white;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px
+}
+     
+</style>
+
+<style>
+  
+  .profile-card {
+    background: #4a70c2;
+    z-index: 2;
+    overflow: hidden;
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(0, 0, 0, 0.23);
+            animation: init 0.5s 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards, materia 0.5s 2.7s cubic-bezier(0.86, 0, 0.07, 1) forwards;
+  }
+  
+  .profile-card .profile-bio {    
+    opacity: 0;
+    -webkit-animation: moveIn 1s 3.1s ease forwards;
+    animation: moveIn 1s 3.1s ease forwards;
+  }
+  
+  @-webkit-keyframes init {
+    0% {
+      width: 0px;
+      height: 0px;
+    }
+    100% {
+      width: 56px;
+      height: 56px;
+      margin-top: 0px;
+      opacity: 1;
+    }
+  }
+  
+  @keyframes init {
+    0% {
+      width: 0px;
+      height: 0px;
+    }
+    100% {
+      width: 56px;
+      height: 56px;
+      margin-top: 0px;
+      opacity: 1;
+    }
+  }
+  
+  @-webkit-keyframes puff {
+    0% {
+      top: 100%;
+      height: 0px;
+      padding: 0px;
+    }
+    100% {
+      top: 50%;
+      height: 100%;
+      padding: 0px 100%;
+    }
+  }
+  
+  @keyframes puff {
+    0% {
+      top: 100%;
+      height: 0px;
+      padding: 0px;
+    }
+    100% {
+      top: 50%;
+      height: 100%;
+      padding: 0px 100%;
+    }
+  }
+  
+  @-webkit-keyframes borderRadius {
+    0% {
+      -webkit-border-radius: 50%;
+    }
+    100% {
+      -webkit-border-radius: 0px;
+    }
+  }
+  
+  @keyframes borderRadius {
+    0% {
+      -webkit-border-radius: 50%;
+    }
+    100% {
+      border-radius: 0px;
+    }
+  }
+  
+  @-webkit-keyframes moveDown {
+    0% {
+      top: 50%;
+    }
+    50% {
+      top: 40%;
+    }
+    100% {
+      top: 100%;
+    }
+  }
+  
+  @keyframes moveDown {
+    0% {
+      top: 50%;
+    }
+    50% {
+      top: 40%;
+    }
+    100% {
+      top: 100%;
+    }
+  }
+  
+  @-webkit-keyframes moveUp {
+    0% {
+      background: #FFB300;
+      top: 100%;
+    }
+    50% {
+      top: 40%;
+    }
+    100% {
+      top: 50%;
+      background: #E0E0E0;
+    }
+  }
+  
+  @keyframes moveUp {
+    0% {
+      background: #FFB300;
+      top: 100%;
+    }
+    50% {
+      top: 40%;
+    }
+    100% {
+      top: 50%;
+      background: #E0E0E0;
+    }
+  }
+  
+  @-webkit-keyframes materia {
+    0% {
+      background: #E0E0E0;
+    }
+    50% {
+      -webkit-border-radius: 4px;
+    }
+    100% {
+      width: 350px;
+      height: 210px;
+      background: #FFFFFF;
+      -webkit-border-radius: 4px;
+    }
+  }
+  
+  @keyframes materia {
+    0% {
+      background: #E0E0E0;
+    }
+    50% {
+      border-radius: 4px;
+    }
+    100% {
+      width: 350px;
+      height: 210px;
+      background: #FFFFFF;
+      border-radius: 4px;
+    }
+  }
+  
+  @-webkit-keyframes moveIn {
+    0% {
+      margin-top: 50px;
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      margin-top: -20px;
+    }
+  }
+  
+  @keyframes moveIn {
+    0% {
+      margin-top: 50px;
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      margin-top: -20px;
+    }
+  }
+  
+  @-webkit-keyframes scaleIn {
+    0% {
+      -webkit-transform: scale(0);
+    }
+    100% {
+      -webkit-transform: scale(1);
+    }
+  }
+  
+  @keyframes scaleIn {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  @-webkit-keyframes ripple {
+    0% {
+      transform: scale3d(0, 0, 0);
+    }
+    50%,
+    100% {
+      -webkit-transform: scale3d(1, 1, 1);
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes ripple {
+    0% {
+      transform: scale3d(0, 0, 0);
+    }
+    50%,
+    100% {
+      transform: scale3d(1, 1, 1);
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  @media screen and (min-aspect-ratio: 4/3) {
+    body {
+      background-size: cover;
+    }
+    body:before {
+      width: 0px;
+    }
+    @ -webkit-keyframes puff {
+      0% {
+        top: 100%;
+        width: 0px;
+        padding-bottom: 0px;
+      }
+      100% {
+        top: 50%;
+        width: 100%;
+        padding-bottom: 100%;
+      }
+    }
+    @keyframes puff {
+      0% {
+        top: 100%;
+        width: 0px;
+        padding-bottom: 0px;
+      }
+      100% {
+        top: 50%;
+        width: 100%;
+        padding-bottom: 100%;
+      }
+    }
+  }
+  
+  @media screen and (min-height: 350px) {
+
+    .profile-card .profile-bio {
+      width: auto;
+      height: auto;
+      padding: 15px 20px 30px 0px;
+      display: block;
+      float: none;
+    }
+
+    @ -webkit-keyframes materia {
+      0% {
+        background: #E0E0E0;
+      }
+      50% {
+        -webkit-border-radius: 4px;
+      }
+      100% {
+        width: 210px;
+        height: 350px;
+        background: #FFFFFF;
+        -webkit-border-radius: 4px;
+      }
+    }
+    @keyframes materia {
+      0% {
+        background: #E0E0E0;
+      }
+      50% {
+        border-radius: 4px;
+      }
+      100% {
+        width: 210px;
+        height: 350px;
+        background: #FFFFFF;
+        border-radius: 4px;
+      }
+    }
+  }
+  
+</style>
+     
+    
+      <!-- some social links to show off -->
+<div style="padding-left: 50px; margin-right: -150px; padding-top: 20px;">
+  <div style="padding-top: 100px; padding-left: 0px; padding-right: 0px; margin-left: 0px; margin-right: 0px;" >
+    <div class="flxContainer profile-card" >
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-evenly none" fxFlex="30" class="profile-bio" >
+          <div fxFlex="100" >
+              <form [formGroup]="_form" style="background: #4784ca; width: 210px" fxFlex="100">    
+                  <div fxLayout="column" style="color: Navy; font-family: 'Arial', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: smaller; margin:10px" fxLayoutGap="0px">
+                      <div fxLayout="row" >
+                          <div fxFlex="100" style="text-align: center; display: block;">
+                              <div fxLayout="row" fxLayoutAlign="space-between start" style="text-align: center; display: block; margin-top: -10px; margin: 0;" >
+                                  <ng-container
+                                      *ngIf="(_form.value.AssetSubCategory == 'Desktop'); else showLaptopImage">
+                                      <div style="background-image: url(../../../../Style%20Library/MyITAssets/MyITAssetsV1/assets/ItAssetsImage/rsz_desktop2.jpg); height: 150px; width: 210px; padding-top: -40px; margin: 0px; text-align: center;">
+                                        <div fxLayout="row" fxLayoutGap="0px" style="padding-top: 100px;">
+                                          <div fxFlex="100">
+                                              <div fxLayout="row" fxLayoutAlign="space-between start" >
+                                                  <input formControlName="AssetSubCategory" style="border: 0px; background: transparent; text-align: center; font-size: large; font-weight: bolder; font-family: Arial, Helvetica, sans-serif; width: 180px; color: ghostwhite;" readonly disabled>
+                                              </div>
+                                          </div>                                    
+                                        </div>
+                                        <div fxLayout="row" fxLayoutGap="1px">
+                                          <div fxFlex="100">
+                                              <div fxLayout="row" >
+                                                  <input formControlName="AssetModel" style="border: 0px; background: transparent; text-align: center; font-size: medium; font-weight: bolder; font-family: Arial, Helvetica, sans-serif; width: 180px; color: ghostwhite;" readonly disabled>
+                                              </div>
+                                          </div>                                    
+                                        </div>
+                                      </div>
+                                      <!-- <img src="assets/ItAssetsImage/Dell/Laptop/laptop2.jpg" alt="image" width="200" height="100" style="padding-top: -40px; margin: 0px; text-align: center;"> -->
+                                  </ng-container>
+                                  <ng-template #showLaptopImage>
+                                    <div style="background-image: url(../../../../Style%20Library/MyITAssets/MyITAssetsV1/assets/ItAssetsImage/rsz_1laptop2.jpg); height: 150px; width: 210px;" >
+                                      <div fxLayout="row" fxLayoutGap="0px" style="padding-top: 100px;">
+                                        <div fxFlex="100">
+                                            <div fxLayout="row" fxLayoutAlign="space-between start" >
+                                                <input formControlName="AssetSubCategory" style="border: 0px; background: transparent; text-align: center; font-size: large; font-weight: bolder; font-family: Arial, Helvetica, sans-serif; width: 180px; color: ghostwhite;">
+                                            </div>
+                                        </div>                                    
+                                      </div>
+                                      <div fxLayout="row" fxLayoutGap="1px">
+                                        <div fxFlex="100">
+                                            <div fxLayout="row" >
+                                                <input formControlName="AssetModel" style="border: 0px; background: transparent; text-align: center; font-size:small; font-weight: bolder; font-family: Arial, Helvetica, sans-serif; width: 180px; color: ghostwhite;">
+                                            </div>
+                                        </div>                                    
+                                      </div>
+                                    </div>                                        
+                                  </ng-template>
+                              </div>
+                          </div>                                    
+                      </div>
+
+                      <div fxLayout="row">
+                          <div fxFlex="100">
+                              <div fxLayout="row" fxLayoutAlign="space-between start">
+                                  <div fxFlex="1 1 28">
+                                      <mat-label>Asset No</mat-label>
+                                  </div>
+                                  <div fxFlex="1 1 3">
+                                      <mat-label>:</mat-label>
+                                  </div>
+                                  <div fxFlex="1 1 69" style="height: 10px; margin-top: 13px;">
+                                      <!-- <input class="fldValue" formControlName="AssetNumber" readonly disabled> -->
+                                      <!-- <mat-form-field appearance="no" fxFlex="85" style="color:Navy; font-size:8pt;">
+                                        <input matInput matDatepicker formControlName='AssetNumber' class="fldValue" readonly disabled>                                            
+                                      </mat-form-field> -->
+                                      <mat-form-field appearance="no" fxFlex="85" style="color:Navy; font-size:8pt;"> 
+                                        <textarea matInput
+                                           formControlName="AssetNumber"
+                                           cdkTextareaAutosize                                             
+                                           cdkAutosizeMinRows="1"
+                                           cdkAutosizeMaxRows="1" 
+                                           readonly 
+                                           disabled></textarea>
+                                        </mat-form-field>
+                                  </div>
+                              </div>
+                          </div>                                    
+                      </div>
+                      <div fxLayout="row">
+                          <div fxFlex="100">
+                              <div fxLayout="row" fxLayoutAlign="space-between start">
+                                  <div fxFlex="1 1 28">
+                                      <mat-label>SL No</mat-label>
+                                  </div>
+                                  <div fxFlex="1 1 3">
+                                      <mat-label>:</mat-label>
+                                  </div>
+                                  <div fxFlex="1 1 69" style="height: 10px; margin-top: 13px;">
+                                      <!-- <input class="fldValue" formControlName="ProductSLNo" readonly disabled> -->
+                                      <!-- <mat-form-field appearance="no" fxFlex="85" style="color:Navy; font-size:8pt;">
+                                        <input matInput matDatepicker formControlName='ProductSLNo' class="fldValue" readonly disabled>                                            
+                                      </mat-form-field> -->
+                                      
+                                      <mat-form-field appearance="no" fxFlex="85" style="color:Navy; font-size:8pt;"> 
+                                        <textarea matInput
+                                           formControlName="ProductSLNo"
+                                           cdkTextareaAutosize                                             
+                                           cdkAutosizeMinRows="1"
+                                           cdkAutosizeMaxRows="1" 
+                                           readonly 
+                                           disabled></textarea>
+                                        </mat-form-field>
+                                  </div>
+                              </div>
+                          </div>                                    
+                      </div>
+                      <div fxLayout="row">
+                          <div fxFlex="100">
+                              <div fxLayout="row" fxLayoutAlign="space-between start">
+                                  <div fxFlex="1 1 28">
+                                      <mat-label>Type</mat-label>
+                                  </div>
+                                  <div fxFlex="1 1 3">
+                                      <mat-label>:</mat-label>
+                                  </div>
+                                  <div fxFlex="1 1 69" style="height: 10px; margin-top: 13px;">
+                                      <!-- <input class="fldValue" formControlName="AssetAcquisitionType" readonly disabled> -->
+                                      <mat-form-field appearance="no" fxFlex="85" style="color:Navy; font-size:8pt;">
+                                        <input matInput formControlName='AssetAcquisitionType' class="fldValue" readonly disabled>                                            
+                                      </mat-form-field>
+                                      <!-- <mat-form-field appearance="no" fxFlex="85" style="color:Navy; font-size:8pt;"> 
+                                        <textarea matInput
+                                           formControlName="AssetAcquisitionType"
+                                           cdkTextareaAutosize                                             
+                                           cdkAutosizeMinRows="1"
+                                           cdkAutosizeMaxRows="1" 
+                                           readonly 
+                                           disabled></textarea>
+                                        </mat-form-field> -->
+                                  </div>
+                              </div>
+                          </div>                                    
+                      </div>
+                      <div fxLayout="row">
+                          <div fxFlex="100">
+                              <div fxLayout="row" fxLayoutAlign="space-between start">
+                                  <div fxFlex="1 1 28">
+                                      <mat-label>Acqusition</mat-label>
+                                  </div>
+                                  <div fxFlex="1 1 3">
+                                      <mat-label>:</mat-label>
+                                  </div>
+                                  <div fxFlex="1 1 69" style="height: 10px; margin-top: 13px;">
+                                      <mat-form-field appearance="no" fxFlex="85" style="color:Navy; font-size:8pt;">
+                                          <input matInput matDatepicker formControlName='UserAcqusitionDate' class="fldValue" readonly disabled>                                            
+                                      </mat-form-field>
+                                  </div>
+                              </div>
+                          </div>                                    
+                      </div>
+                      <div fxLayout="row">
+                          <div fxFlex="100">
+                              <div fxLayout="row" fxLayoutAlign="space-between start">
+                                  <div fxFlex="1 1 28">
+                                      <mat-label>Warranty</mat-label>
+                                  </div>
+                                  <div fxFlex="1 1 3">
+                                      <mat-label>:</mat-label>
+                                  </div>
+                                  <div fxFlex="1 1 69" style="height: 10px; margin-top: 13px;">
+                                      <mat-form-field appearance="no" fxFlex="85" style="color:Navy; font-size:8pt;">
+                                        <input matInput matDatepicker formControlName='WarrantyExpDate' class="fldValue" readonly disabled>                                            
+                                      </mat-form-field>
+                                </div>
+                              </div>
+                          </div>                                    
+                      </div>
+                   
+                      <div fxLayout="row">
+                          <div fxFlex="100">
+                              <div fxLayout="row" fxLayoutAlign="space-between start">
+                                  <div fxFlex="1 1 28">
+                                      <mat-label>Useful Life</mat-label>
+                                  </div>
+                                  <div fxFlex="1 1 3">
+                                      <mat-label>:</mat-label>
+                                  </div>
+                                  <div fxFlex="1 1 69" style="height: 10px; margin-top: 13px;">
+                                      <!-- <input class="fldValue" formControlName="UsefulLife" readonly disabled> -->
+                                      <!-- <mat-form-field appearance="no" style="color:Navy; font-size:8pt;">
+                                        <input matInput matDatepicker formControlName='UsefulLife' readonly disabled>                                            
+                                      </mat-form-field> -->
+                                      <mat-form-field appearance="no" fxFlex="85" style="color:Navy; font-size:8pt;"> 
+                                        <textarea matInput
+                                           formControlName="UsefulLife"
+                                           cdkTextareaAutosize                                             
+                                           cdkAutosizeMinRows="1"
+                                           cdkAutosizeMaxRows="1" 
+                                           readonly 
+                                           disabled></textarea>
+                                        </mat-form-field>
+                                  </div>
+                              </div>
+                          </div>                                    
+                      </div>
+
+                      <div fxLayout="row">
+                          <div fxFlex="100">
+                              <div fxLayout="row" fxLayoutAlign="space-between start">
+                                  <div fxFlex="1 1 28">
+                                      <mat-label>Purchase</mat-label>
+                                  </div>
+                                  <div fxFlex="1 1 3">
+                                      <mat-label>:</mat-label>
+                                  </div>
+                                  <div fxFlex="1 1 69" style="height: 10px; margin-top: 13px;">
+                                      <mat-form-field appearance="no" fxFlex="85" style="color:Navy; font-size:8pt;">
+                                        <input matInput matDatepicker formControlName='PurchaseDate' class="fldValue" readonly disabled>                                            
+                                      </mat-form-field>
+                                </div>
+                              </div>
+                          </div>                                    
+                      </div>
+                      <div fxLayout="row">
+                        <div fxFlex="100">
+                            <div fxLayout="row" fxLayoutAlign="space-between start">
+                                <div fxFlex="1 1 28">
+                                    <mat-label>Description</mat-label>
+                                </div>
+                                <div fxFlex="1 1 3">
+                                    <mat-label>:</mat-label>
+                                </div>
+                                <div fxFlex="1 1 69" style="margin-top: 13px;">
+                                    <!-- <input class="fldValue" formControlName="AssetDescription" readonly disabled> -->
+                                    <mat-form-field appearance="no" fxFlex="85" style="color:Navy; font-size:8pt;"> 
+                                      <textarea matInput
+                                         formControlName="AssetDescription"
+                                         cdkTextareaAutosize                                             
+                                         cdkAutosizeMinRows="1"
+                                         cdkAutosizeMaxRows="3" 
+                                         readonly 
+                                         disabled></textarea>
+                                      </mat-form-field>
+                                </div>
+                            </div>
+                        </div>                                    
+                    </div>
+                      <!-- <div fxLayout="row">
+                          <div fxFlex="100">
+                              <div fxLayout="row" fxLayoutAlign="space-between start">
+                                  <div fxFlex="1 1 33">
+                                      <mat-label>Manufacturer</mat-label>
+                                  </div>
+                                  <div fxFlex="1 1 3">
+                                      <mat-label>:</mat-label>
+                                  </div>
+                                  <div fxFlex="1 1 64">
+                                      <input formControlName="Manufacturer" readonly
+                                          disabled style="border: 0px; background: transparent; color:Navy">
+                                  </div>
+                              </div>
+                          </div>                                    
+                      </div> -->
+                  </div>
+              </form>
+          </div>
+      </div>                   
+  </div> 
+  <br>  
+  </div>
+</div>

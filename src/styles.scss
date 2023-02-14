@@ -1,0 +1,34 @@
+/* You can add global styles to this file, and also import other style files */
+
+// html, body { height: 100%; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+//@import "../node_modules/ag-grid-community/src/styles/ag-grid.scss";
+//@import "../node_modules/ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin.scss";
+@import 'ag-grid-community/dist/styles/ag-grid.css';
+@import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
+
+// .ag-theme-alpine {
+//     @include ag-theme-alpine();
+// }
+
+.ag-header-group-cell-label {
+    //justify-content: center !important;
+    text-align: center !important;
+}
+
+/* Add below styles & imports to this file for ngSelect / multiselect drop down! */
+//@import "~@ng-select/ng-select/scss/default.theme.scss";
+//@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+
+
+/* add below style for ng-select DDL */
+@import "~@ng-select/ng-select/themes/material.theme.css";
+
+// // ... or 
+
+// @import "~@ng-select/ng-select/themes/default.theme.css";
+
+@import '~material-design-icons/iconfont/material-icons.css';

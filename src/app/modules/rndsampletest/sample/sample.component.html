@@ -1,0 +1,30 @@
+
+
+<div style="width: 880px; margin: auto;" class="fix-this" id="report">
+    <div style="width: 100%; margin: auto; background-color: #d9dbdf;">
+        <form [formGroup]="_form" (ngSubmit)="onSubmitBtn()">
+            <br/>
+            <div style="background-color: whitesmoke; padding: 15px; margin-left: 15px; margin-right: 15px;">
+                <app-requestor [formGroup]="_form" [requestorsInfo]="requestorsInfo"></app-requestor>
+            </div>
+            <br>
+            <div style="background-color: whitesmoke; padding: 15px; margin-left: 15px; margin-right: 15px;">
+                <div>
+                    <ng-container formArrayName="TestParameters">
+                        <ng-container *ngFor="let group of _groupsFormArray?.controls; index as i">
+                            <app-group-control (remove)="_delete(i)" [formControlName]="i"
+                                [formLabel]="'TestParameter '+ (i + 1) + ':'" [requestInfo]="requestInfo">
+                            </app-group-control>
+                        </ng-container>
+                    </ng-container>
+                </div>
+                <br>
+            </div> 
+            <br/>
+        </form>        
+    </div>
+</div>
+
+
+
+

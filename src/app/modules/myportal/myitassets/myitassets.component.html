@@ -1,0 +1,164 @@
+
+<style>
+	mat-form-field { /* Changes the input styling to just about nothing so that button styling can take over */
+	font-size: 12px;
+	margin-top: -25px;
+	height: 55px;
+	}
+
+	mat-select{
+	font-size: 12px;
+	margin-top: -25px;
+	}
+
+	mat-form-field > input {
+	margin-top: -25px;
+	}
+
+	::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+	/* remove border if needed  */
+	/* color: transparent !important;  */  
+	height: 32px; 
+	margin-top: 8px;
+	}
+     
+</style>
+
+<style>
+  table, th, td {
+    border: 1px solid black;
+  }  
+
+  .div-outer-table {
+      overflow-x: scroll;
+      display: inline-grid;
+   }   
+</style>
+
+<style>
+   label{
+      color:Navy;
+      font-family: 'arial', 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+   } 
+</style>
+
+<style>
+   mat-form-field { /* Changes the input styling to just about nothing so that button styling can take over */
+     font-size: 12px;
+     margin-top: -25px;
+     height: 55px;
+   }
+   
+   mat-select{
+     font-size: 12px;
+     margin-top: -25px;
+   }
+   
+   mat-form-field > input {
+      margin-top: -25px;
+   }
+   
+   ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+      /* remove border if needed  */
+     /* color: transparent !important;  */  
+     height: 32px; 
+     margin-top: 8px;
+   }
+        
+</style>
+   
+<style>
+     table, th, td {
+       border: 1px solid black;
+     }  
+   
+     .div-outer-table {
+         overflow-x: scroll;
+         display: inline-grid;
+      }   
+</style>
+   
+<style>
+	label{
+		color:Navy;
+		font-family: 'arial', 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+	} 
+</style>
+
+
+
+
+
+
+
+<div style="width: 100%; margin: auto;">
+  <div style="width: 100%;">
+     <form [formGroup]="_form">
+      <!-- <form [formGroup]="_form" (ngSubmit)="onSubmitBtn()"> -->
+     <!-- <h2 style="color: white; margin-left: 35px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">My IT Assets</h2> -->
+         <!-- <div style="background-color: whitesmoke; padding: 15px; margin-left: 15px; margin-right: 15px;">
+            <app-requestor [formGroup]="_form" [requestorsInfo]="requestorsInfo"></app-requestor>
+         </div> -->
+           <br>
+           <div style="padding: 15px; margin-left: 15px; margin-right: 15px;">
+            <div>
+              <!-- <section class="top-bar">
+                <span>Nested TestParameters</span>
+                <button type="button"
+                        label="Add Statement"
+                        (click)="_buildFormFromData()">
+                  build form based on data
+                </button>
+                <button type="button"
+                        label="Add Statement"
+                        (click)="_addGroup()">add TestParameter</button>
+              </section> -->
+            
+              <!-- <pre *ngIf="!_groupsFormArray?.controls?.length">
+                  <strong>data:</strong> {{_data | json}}
+              </pre> -->
+            
+              <!-- <form [formGroup]="_form"> -->
+                  <ng-container formArrayName="TestParameters">
+                    <ng-container *ngFor="let group of _groupsFormArray?.controls; index as i">
+                      <app-myassetdashboard-groupcontrol (remove)="_delete(i)"
+                                         [formControlName]="i"
+                                         [formLabel]="'TestParameter '+ (i + 1) + ':'"
+                                         [samplesItems]="data5">
+                      </app-myassetdashboard-groupcontrol>
+                    </ng-container>
+                </ng-container>
+              <!-- </form> -->
+            </div>
+          
+            <!-- <pre>{{ _form.value | json }}</pre>  -->
+           </div>
+             <!-- </form> -->
+             
+               </form>
+               <!-- <br> -->
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

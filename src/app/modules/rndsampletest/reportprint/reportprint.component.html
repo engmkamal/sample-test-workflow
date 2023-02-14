@@ -1,0 +1,299 @@
+<div style="width: 880px; margin: auto;" class="fix-this" id="report">
+    <div style="width: 100%; margin: auto; background-color: #d9dbdf;">
+        <form [formGroup]="_form" (ngSubmit)="onSubmitBtn()">
+            <br>
+            <div style="background-color: whitesmoke; padding: 15px; margin-left: 15px; margin-right: 15px;">
+                <div style="display: flex;"  *ngIf="requestInfo.Status == 'Completed'">
+                    <div fxLayout="row" fxFlex="1 1 100" style="border: 2px solid blue; border-radius: 5px;">
+                        <div fxLayout="row" fxFlex="1 1 16" fxFlex.md="1 1 15" fxFlex.sm="1 1 20" fxFlex.xs="1 1 25"
+                            style="border: 2px solid blue; border-radius: 3px 0px 0px 3px;">
+
+                            <div fxLayout="column" fxFlex="100" fxLayoutAlign="center" fxLayoutGap="0px"
+                                style="padding-left:10px; margin: auto; ">
+                                <div><img src="{{domain}}/Style%20Library/SampleTest/SampleTestV1/assets/SampleTestWF/rsz_berger_png_logo.png"
+                                        style="height: 70px; width: 100px; margin: 5px;" /></div>
+                                <!-- <div style="background-image: url(https://portal.bergerbd.com/Style%20Library/SampleTest/SampleTestV1/assets/SampleTestWF/bergerLogo50X35.png); height: 70px; width: 100px; margin: 5px;"></div> -->
+                            </div>
+                        </div>
+                        <div fxLayout="row" fxFlex="1 1 50" fxFlex.md="1 1 50" fxFlex.sm="1 1 40" fxFlex.xs="1 1 30"
+                            style="border: 2px solid blue;">
+                            <div fxLayout="column" fxFlex="100" fxLayoutAlign="center none"
+                                style="margin-left: 2px; text-align: center !important;">
+                                <div style="font-size: 40px; font-weight: bold; font-family: 'Times New Roman', Times, serif;">
+                                    Test Report</div>
+                            </div>
+                        </div>
+                        <div fxLayout="row" fxFlex="1 1 35" fxFlex.md="1 1 35" fxFlex.sm="1 1 40" fxFlex.xs="1 1 45"
+                            style="border: 2px solid blue; border-radius: 0px 3px 3px 0px; ">
+                            <div fxLayout="column" fxFlex="100" fxLayoutAlign="center none" style="margin-left: 2px;">
+                                <div fxLayout="row" fxFlex="100" style="font-size: 11pt;">
+                                    Research & Development Center ,
+                                </div>
+                                <div fxLayout="row" fxFlex="100" style="font-size: 11pt;">
+                                    Berger Paints Bangladesh Limited
+                                </div>
+                                <div fxLayout="row" fxFlex="100" style="font-size: 10pt;">
+                                    Plot: 102; Mouza: Taksur; Nabinagar,
+                                </div>
+                                <div fxLayout="row" fxFlex="100" style="font-size: 11pt;">
+                                    Savar, Dhaka - 1340, Bangladesh .
+                                </div>
+                                <div fxLayout="row" fxFlex="100" style="font-size: 9pt;">
+                                    testinglab@bergerbd.com, www.bergerbd.com
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    style="background-color: whitesmoke; margin-left: 15px; margin-right: 15px; font-weight: bold; font-size: 16pt;">
+                    <br />
+                    <div style="color:Navy">Test Report No. : <input formControlName="ReportNo"
+                            style="color:Navy; min-width: 300px; border: none; font-weight: bolder; font-size: 14pt;"
+                            readonly disabled></div>
+                    <div style="color:Navy">Report Date : <input formControlName="ReportReleaseDate"
+                            style="color:Navy; min-width: 200px; border: none; font-weight: bolder; font-size: 13pt"
+                            readonly disabled><span id="rDate" style="display: none;">{{date | date}}</span></div>
+                </div>
+            </div>
+            <div style="background-color: whitesmoke; padding: 15px; margin-left: 15px; margin-right: 15px;">
+                <app-requestor [formGroup]="_form" [requestorsInfo]="requestorsInfo"></app-requestor>
+            </div>
+            <br>
+            <div style="background-color: whitesmoke; padding: 15px; margin-left: 15px; margin-right: 15px;">
+                <div fxFlex="1 1 100" fxLayout="row" fxLayoutAlign="space-between start">
+                    <div fxFlex="1 1 15">
+                        <mat-label>Note</mat-label>
+                    </div>
+                    <div fxFlex="1 1 2">
+                        <mat-label>:</mat-label>
+                    </div>
+                    <div fxFlex="1 1 83">
+                        <ng-container>
+                            <label style="color: navy; font-family: Arial, Helvetica, sans-serif; font-size: 10pt;">{{requestInfo.RnDLabTest.ReportNote}}</label>
+                        </ng-container>
+                        <!-- <ng-template #showSmplTxt>
+                            <mat-form-field appearance="outline" height="200px" fxFlex="100"
+                                style="margin-top: -15px; color:Navy; height: 150px !important;">
+                                <textarea matInput formControlName="ReportNote" cdkTextareaAutosize
+                                    cdkAutosizeMinRows="3" cdkAutosizeMaxRows="5" #note maxlength="300"
+                                    style="height: 150px !important;"></textarea>
+                                <mat-hint align="end">{{note.value?.length || 0}}/300</mat-hint>
+                            </mat-form-field>
+                        </ng-template> -->
+                        <br />
+                        <br />
+                        <br />
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div style="background-color: whitesmoke; padding: 15px; margin-left: 15px; margin-right: 15px;">
+                <div fxLayout="row" fxFlex="1 1 100" style="border: 2px solid rgb(189, 189, 243); border-radius: 5px;">
+                    <div fxLayout="row" fxFlex="1 1 40" fxFlex.sm="1 1 40" fxFlex.xs="1 1 40"
+                        style="border: 2px solid rgb(217, 217, 241); border-radius: 3px 0px 0px 3px; padding: 20px;">
+                        <div fxLayout="column" fxFlex="100" fxLayoutAlign="center" fxLayoutGap="0px"
+                            style="margin-left: 2px; margin: auto; font-weight: bold;">
+                            <div fxLayout="row" fxFlex="100" style="font-size: 11pt;">
+                                Sign for and on behalf of
+                            </div>
+                            <div fxLayout="row" fxFlex="100" style="font-size: 12pt;">
+                                Research & Development Center,
+                            </div>
+                            <div fxLayout="row" fxFlex="100" style="font-size: 12pt;">
+                                Berger Paints Bangladesh Limited
+                            </div>
+                            <div *ngIf="requestInfo.Status == 'Completed'"><img
+                                    src="{{domain}}/Style%20Library/SampleTest/SampleTestV1/assets/SampleTestWF/rsz_signature_23092020.jpg"
+                                    style="height: 70px; width: 100px; margin: 5px;" /></div>
+                            <!-- <div style="background-image: url(https://portal.bergerbd.com/Style%20Library/SampleTest/SampleTestV1/assets/SampleTestWF/rsz_signature_23092020.jpg); height: 70px; width: 100px; margin: 5px;"></div> -->
+                            <div fxLayout="row" fxFlex="100" style="font-size: 11pt;">
+                                Quality Manager
+                            </div>
+
+                        </div>
+                    </div>
+                    <div fxLayout="row" fxFlex="1 1 30" fxFlex.sm="1 1 30" fxFlex.xm="1 1 30"
+                        style="border: 2px solid rgb(217, 217, 235);">
+                        <div fxLayout="column" fxFlex="100" fxLayoutAlign="center none" style="margin-left: 2px;">                            
+                            <!-- <div *ngIf="requestInfo.Status == 'Completed' && requestInfo.RnDLabTest.TestParameters[0].Title.Title != 'Solvent/Monomer GC Analysis' && requestInfo.RnDLabTest.TestParameters[0].Title.Title != 'Particle size distribution of Latex' && requestInfo.RnDLabTest.TestParameters[0].Title.Title != 'MFFT of Latex'"><img src="{{domain}}/Style%20Library/SampleTest/SampleTestV1/assets/SampleTestWF/ilac.bmp"
+                                style="height: 150px; width: 150px; margin: 5px; display: block; margin: auto auto;" />
+                            </div> -->
+                        </div>
+                    </div>
+                    <div fxLayout="row" fxFlex="1 1 30" fxFlex.sm="1 1 35" fxFlex.xm="1 1 35"
+                        style="border: 2px solid rgb(217, 217, 238); border-radius: 0px 3px 3px 0px; ">
+                        <div fxLayout="column" fxFlex="100" fxLayoutAlign="center none" style="margin-left: 2px;">                            
+                            <div *ngIf="requestInfo.Status == 'Completed' && requestInfo.RnDLabTest.TestParameters[0].Title.Title != 'Solvent/Monomer GC Analysis' && requestInfo.RnDLabTest.TestParameters[0].Title.Title != 'Particle size distribution of Latex' && requestInfo.RnDLabTest.TestParameters[0].Title.Title != 'MFFT of Latex'"><img src="{{domain}}/Style%20Library/SampleTest/SampleTestV1/assets/SampleTestWF/nabl.bmp"
+                                style="height: 170px; width: 130px; margin: 5px; display: block; margin: auto auto;"/></div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <div style="background-color: whitesmoke; padding: 15px; margin-left: 15px; margin-right: 15px;">
+                <p>
+                    Test report is made solely on the basis of information & materials supplied by client. Any
+                    unauthorized alteration, forgery or falsification of the content or appearance of this document is
+                    unlawful and offenders may be prosecuted to the fullest extent of the law. This test report does not
+                    entitle to carry any safety mark on this or similar products. Customer has to raise objection (if
+                    any) within 15 days from date of issuance of this report to notify us of any material error or
+                    omission caused in lab testing process, however, that such notice shall be in writing and shall
+                    specifically address the issue you wish to raise. A failure to raise such issue within the
+                    prescribed time shall constitute you unqualified acceptance of the completeness of this report, the
+                    tests conducted and the correctness of the report contents.
+                </p>
+            </div>
+
+            <div style="background-color: whitesmoke; padding: 15px; margin-left: 15px; margin-right: 15px;">
+
+                BPBL/QF/28 – Test Report
+            </div>
+
+            <div style="background-color: whitesmoke; padding: 15px; margin-left: 15px; margin-right: 15px;">
+                <qrcode [qrdata]="myAngularxQrCode" [width]="125" [errorCorrectionLevel]="'M'"></qrcode>
+            </div>
+
+            
+            <br>
+            <p style="page-break-after: always;"></p>
+            <div style="background-color: whitesmoke; padding: 15px; margin-left: 15px; margin-right: 15px;">
+                <div style="display: flex;" *ngIf="requestInfo.Status == 'Completed'">
+                    <div fxLayout="row" fxFlex="1 1 100" style="border: 2px solid blue; border-radius: 5px;">
+                        <div fxLayout="row" fxFlex="1 1 16" fxFlex.md="1 1 15" fxFlex.sm="1 1 20" fxFlex.xs="1 1 25"
+                            style="border: 2px solid blue; border-radius: 3px 0px 0px 3px;">
+
+                            <div fxLayout="column" fxFlex="100" fxLayoutAlign="center" fxLayoutGap="0px"
+                                style="padding-left:10px; margin: auto; ">
+                                <div><img src="{{domain}}/Style%20Library/SampleTest/SampleTestV1/assets/SampleTestWF/rsz_berger_png_logo.png"
+                                        style="height: 70px; width: 100px; margin: 5px;" /></div>
+                                <!-- <div style="background-image: url(https://portal.bergerbd.com/Style%20Library/SampleTest/SampleTestV1/assets/SampleTestWF/bergerLogo50X35.png); height: 70px; width: 100px; margin: 5px;"></div> -->
+                            </div>
+                        </div>
+                        <div fxLayout="row" fxFlex="1 1 55" fxFlex.md="1 1 55" fxFlex.sm="1 1 40" fxFlex.xs="1 1 30"
+                            style="border: 2px solid blue;">
+                            <div fxLayout="column" fxFlex="100" fxLayoutAlign="center none"
+                                style="margin-left: 2px; text-align: center !important;">
+                                <div style="font-size: 40px; font-weight: bold; font-family: 'Times New Roman', Times, serif;">
+                                    Test Report</div>
+                            </div>
+                        </div>
+                        <div fxLayout="row" fxFlex="1 1 30" fxFlex.md="1 1 30" fxFlex.sm="1 1 40" fxFlex.xs="1 1 45"
+                            style="border: 2px solid blue; border-radius: 0px 3px 3px 0px; ">
+                            <div fxLayout="column" fxFlex="100" fxLayoutAlign="center none" style="margin-left: 2px;">
+                                <div fxLayout="row" fxFlex="100" style="font-size: 11pt;">
+                                    Research & Development Center ,
+                                </div>
+                                <div fxLayout="row" fxFlex="100" style="font-size: 11pt;">
+                                    Berger Paints Bangladesh Limited
+                                </div>
+                                <div fxLayout="row" fxFlex="100" style="font-size: 10pt;">
+                                    Plot: 102; Mouza: Taksur; Nabinagar,
+                                </div>
+                                <div fxLayout="row" fxFlex="100" style="font-size: 11pt;">
+                                    Savar, Dhaka - 1340, Bangladesh .
+                                </div>
+                                <div fxLayout="row" fxFlex="100" style="font-size: 9pt;">
+                                    testinglab@bergerbd.com, www.bergerbd.com
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    style="background-color: whitesmoke; margin-left: 15px; margin-right: 15px; font-weight: bold; font-size: 16pt;">
+                    <br />
+                    <div style="color:Navy">Test Report No. : <input formControlName="ReportNo"
+                            style="color:Navy; min-width: 300px; border: none; font-weight: bolder; font-size: 14pt;"
+                            readonly disabled></div>
+                    <div style="color:Navy">Report Date : <input formControlName="ReportReleaseDate"
+                            style="color:Navy; min-width: 200px; border: none; font-weight: bolder; font-size: 13pt"
+                            readonly disabled><span id="rDate" style="display: none;">{{date | date}}</span></div>
+                </div>
+            </div>
+
+            <div style="background-color: whitesmoke; padding: 15px; margin-left: 15px; margin-right: 15px;">
+                <div>
+                    <ng-container formArrayName="TestParameters">
+                        <ng-container *ngFor="let group of _groupsFormArray?.controls; index as i">
+                            <app-group-control (remove)="_delete(i)" [formControlName]="i"
+                                [formLabel]="'TestParameter '+ (i + 1) + ':'" [requestInfo]="requestInfo">
+                            </app-group-control>
+                        </ng-container>
+                    </ng-container>
+                </div>
+                <br>
+                <br>
+            </div>
+            <p style="page-break-after: always;"></p>
+            <div style="background-color: whitesmoke; padding: 15px; margin-left: 15px; margin-right: 15px;">
+                <div style="display: flex;" *ngIf="requestInfo.Status == 'Completed'">
+                    <div fxLayout="row" fxFlex="1 1 100" style="border: 2px solid blue; border-radius: 5px;">
+                        <div fxLayout="row" fxFlex="1 1 16" fxFlex.md="1 1 15" fxFlex.sm="1 1 20" fxFlex.xs="1 1 25"
+                            style="border: 2px solid blue; border-radius: 3px 0px 0px 3px;">
+
+                            <div fxLayout="column" fxFlex="100" fxLayoutAlign="center" fxLayoutGap="0px"
+                                style="padding-left:10px; margin: auto; ">
+                                <div><img src="{{domain}}/Style%20Library/SampleTest/SampleTestV1/assets/SampleTestWF/rsz_berger_png_logo.png"
+                                        style="height: 70px; width: 100px; margin: 5px;" /></div>
+                                <!-- <div style="background-image: url(https://portal.bergerbd.com/Style%20Library/SampleTest/SampleTestV1/assets/SampleTestWF/bergerLogo50X35.png); height: 70px; width: 100px; margin: 5px;"></div> -->
+                            </div>
+                        </div>
+                        <div fxLayout="row" fxFlex="1 1 49" fxFlex.md="1 1 55" fxFlex.sm="1 1 40" fxFlex.xs="1 1 30"
+                            style="border: 2px solid blue;">
+                            <div fxLayout="column" fxFlex="100" fxLayoutAlign="center none"
+                                style="margin-left: 2px; text-align: center !important;">
+                                <div style="font-size: 40px; font-weight: bold; font-family: 'Times New Roman', Times, serif;">
+                                    Test Report</div>
+                            </div>
+                        </div>
+                        <div fxLayout="row" fxFlex="1 1 35" fxFlex.md="1 1 30" fxFlex.sm="1 1 40" fxFlex.xs="1 1 45"
+                            style="border: 2px solid blue; border-radius: 0px 3px 3px 0px; ">
+                            <div fxLayout="column" fxFlex="100" fxLayoutAlign="center none" style="margin-left: 2px;">
+                                <div fxLayout="row" fxFlex="100" style="font-size: 11pt;">
+                                    Research & Development Center ,
+                                </div>
+                                <div fxLayout="row" fxFlex="100" style="font-size: 11pt;">
+                                    Berger Paints Bangladesh Limited
+                                </div>
+                                <div fxLayout="row" fxFlex="100" style="font-size: 10pt;">
+                                    Plot: 102; Mouza: Taksur; Nabinagar,
+                                </div>
+                                <div fxLayout="row" fxFlex="100" style="font-size: 11pt;">
+                                    Savar, Dhaka - 1340, Bangladesh .
+                                </div>
+                                <div fxLayout="row" fxFlex="100" style="font-size: 9pt;">
+                                    testinglab@bergerbd.com, www.bergerbd.com
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    style="background-color: whitesmoke; margin-left: 15px; margin-right: 15px; font-weight: bold; font-size: 16pt;">
+                    <br />
+                    <div style="color:Navy">Test Report No. : <input formControlName="ReportNo"
+                            style="color:Navy; min-width: 300px; border: none; font-weight: bolder; font-size: 14pt;"
+                            readonly disabled></div>
+                    <div style="color:Navy">Report Date : <input formControlName="ReportReleaseDate"
+                            style="color:Navy; min-width: 200px; border: none; font-weight: bolder; font-size: 13pt"
+                            readonly disabled><span id="rDate" style="display: none;">{{date | date}}</span></div>
+                </div>
+            </div>
+
+            
+            <ng-container *ngFor="let testParameter of requestInfo.RnDLabTest.TestParameters; index as i">
+
+                <app-testresultinputfields [requestInfo]="requestInfo" [testParameter]="testParameter">
+                </app-testresultinputfields>
+            </ng-container>
+            <br>
+        </form>
+        <br>
+
+    </div>
+</div>
+
+<!-- <p><button printSectionId = "report" ngxPrint>Print</button></p> -->

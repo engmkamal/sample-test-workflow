@@ -1,0 +1,28 @@
+<form [formGroup]="_form" class="fix-this">
+  <fieldset>
+    <legend>{{formLabel}}</legend>
+    <div FxLayout="column">
+      <ng-container *ngIf="requestInfo.readMode != 'read' || requestInfo.Status != 'Completed'">
+        <app-action-buttons-bar (remove)="remove.emit()" (addGroup)="_addGroup()" (addCondition)="_addCondition()" [requestInfo]="requestInfo">
+        </app-action-buttons-bar>
+      </ng-container>
+      <br>
+      <ng-container *ngIf="requestInfo.uId == '' ">
+        <app-paramselectfield [formGroup]="_form" [formControlName]="formControlName" [requestInfo]="requestInfo">
+        </app-paramselectfield>
+      </ng-container>
+      <ng-container formArrayName="Samples">
+        <app-condition-form *ngFor="let c of _conditionsFormArray?.controls; index as j" (remove)="_deleteCondition(j)"
+          [formControlName]="j" [formLabel]="'Sample ' + (j+1)" [requestInfo]="requestInfo">
+        </app-condition-form>
+      </ng-container>
+      <!-- <ng-container formArrayName="TestParameters">
+          <app-group-control *ngFor="let s of _groupsFormArray?.controls; index as i"
+                              (remove)="_deleteGroupFromArray(i)" 
+                              [formControlName]="i"
+                              [formLabel]="'Nested TestParameter '+ (i + 1) + ':'">
+          </app-group-control>
+        </ng-container> -->
+    </div>
+  </fieldset>
+</form>
