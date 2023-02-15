@@ -23,13 +23,6 @@
     }
 </style> -->
 
-<style>
-    label {
-        color: Navy;
-        font-family: 'arial';
-    }
-</style>
-
 <!-- <style>
     mat-form-field {
         /* Changes the input styling to just about nothing so that button styling can take over */
@@ -60,6 +53,12 @@
         color: Navy;
         font-family: 'arial';
     }
+
+    /* table,
+    th,
+    td {
+         border: 1px solid black;
+    } */
 </style>
 
 <div style="width: 100%; margin: auto;">
@@ -419,17 +418,17 @@
                                             <table formArrayName="TestResults" style="border: 2px;">
                                                 <thead>
                                                     <tr>
-                                                        <th>#</th>
-                                                        <th scope="col" style="width:133px; border: 1px solid black;">SampleID</th>                                                        
-                                                        <th scope="col" style="width:12px; border: 1px solid black;">#</th>
-                                                        <th scope="col" style="width:100px; border: 1px solid black;">Parameter</th>
-                                                        <th scope="col" style="width:100px; border: 1px solid black;">TestResult</th>
-                                                        <th scope="col" style="width:100px; border: 1px solid black;">Unit</th>
-                                                        <th scope="col" style="width:100px; border: 1px solid black;">RL</th>
-                                                        <th scope="col" style="width:100px; border: 1px solid black;">LimitValue</th>
-                                                        <th scope="col" style="width:106px; border: 1px solid black;">Comment</th>
-                                                        <th scope="col" style="border: 1px solid black;" hidden>Action</th>
-                                                        <th scope="col" style="border: 1px solid black;" hidden>Action</th>
+                                                        <th style="width:20px; border: 1px solid black;">#</th>
+                                                        <th scope="col" style="width:135px; border: 1px solid black;">SampleID</th>                                                        
+                                                        <th scope="col" style="width:20px; border: 1px solid black;">#</th>
+                                                        <th scope="col" style="width:112px; border: 1px solid black;">Parameter</th>
+                                                        <th scope="col" style="width:110px; border: 1px solid black;">TestResult</th>
+                                                        <th scope="col" style="width:111px; border: 1px solid black;">Unit</th>
+                                                        <th scope="col" style="width:110px; border: 1px solid black;">RL</th>
+                                                        <th scope="col" style="width:110px; border: 1px solid black;">LimitValue</th>
+                                                        <th scope="col" style="width:118px; border: 1px solid black;">Comment</th>
+                                                        <th scope="col" style="border:1px solid black;" hidden>Action</th>
+                                                        <th scope="col" style="border:1px solid black;" hidden>Action</th>
                                                     </tr>
                                                 </thead>
                                             </table>
@@ -444,28 +443,28 @@
                                                 <tbody>
                                                     <tr *ngFor="let person of getPeople(TestParameter); let i=index"
                                                         [formGroupName]="i">
-                                                        <td>{{i+1}}</td>
-                                                        <td><input class="form-control" type="text"
+                                                        <td style="width:20px; border: 1px solid black;">{{i+1}}</td>
+                                                        <td style="width:134px; border: 1px solid black;"><input class="form-control" type="text"
                                                                 placeholder="SampleID" formControlName="SampleID"
-                                                                style="width:125px; font-size: 10pt; color:Navy; font-family: Arial, Helvetica, sans-serif;" readonly disabled></td>
+                                                                style="width:130px; font-size: 10pt; color:Navy; font-family: Arial, Helvetica, sans-serif;" readonly disabled></td>
 
                                                         <td style="border: 1px solid black;">
                                                             <table class="table table-sm" formArrayName="Results">
                                                                 <tbody>
                                                                     <tr *ngFor="let address of getAddress(person); let j=index"
                                                                         [formGroupName]="j">
-                                                                        <td>
+                                                                        <td style="width:20px; border: 1px solid black;">
                                                                             {{j+1}}
                                                                         </td>
-                                                                        <td>
-                                                                            <div style="width:100px; font-size: 10pt; color:Navy; font-family: Arial, Helvetica, sans-serif; border: none; background: transparent;" readonly disabled>
+                                                                        <td style="border: 1px solid black;">
+                                                                            <div style="min-width:101px; font-size: 10pt; color:Navy; font-family: Arial, Helvetica, sans-serif; border: none; background: transparent;" readonly disabled>
                                                                                 <label >{{address.get('Parameter').value}}</label></div>
                                                                             <!-- <input type="text" class="form-control"
                                                                                 placeholder="Parameter"
                                                                                 formControlName="Parameter"
                                                                                 style="width:115px; font-size: 10pt; color:Navy; font-family: Arial, Helvetica, sans-serif; border: none; background: transparent;" readonly disabled> -->
                                                                         </td>
-                                                                        <td>
+                                                                        <td style="border: 1px solid black;">
                                                                             <div style="width:100px; font-size: 10pt; color:Navy; font-family: Arial, Helvetica, sans-serif; border: none; background: transparent;" readonly disabled>
                                                                                 <label >{{address.get('TestResult').value}}</label></div>
                                                                             <!-- <input type="text" class="form-control"
@@ -474,7 +473,7 @@
                                                                                 style="width:120px; font-size: 10pt; color:Navy; font-family: Arial, Helvetica, sans-serif; border: none; background: transparent;" readonly disabled> -->
                                                                         </td>
 
-                                                                        <td>
+                                                                        <td style="border: 1px solid black;">
                                                                             <div style="width:100px; font-size: 10pt; color:Navy; font-family: Arial, Helvetica, sans-serif; border: none; background: transparent;" readonly disabled>
                                                                                 <label >{{address.get('Unit').value}}</label></div>
 
@@ -483,14 +482,14 @@
                                                                                 formControlName="Unit"
                                                                                 style="width:70px; font-size: 10pt; color:Navy; font-family: Arial, Helvetica, sans-serif; border: none; background: transparent;" readonly disabled> -->
                                                                         </td>
-                                                                        <td>
+                                                                        <td style="border: 1px solid black;">
                                                                             <div style="width:100px; font-size: 10pt; color:Navy; font-family: Arial, Helvetica, sans-serif; border: none; background: transparent;" readonly disabled>
                                                                                 <label >{{address.get('RL').value}}</label></div>
                                                                             <!-- <input type="text" class="form-control"
                                                                                 placeholder="RL" formControlName="RL"
                                                                                 style="width:70px; font-size: 10pt; color:Navy; font-family: Arial, Helvetica, sans-serif; border: none; background: transparent;" readonly disabled> -->
                                                                         </td>
-                                                                        <td>
+                                                                        <td style="border: 1px solid black;">
                                                                             <div style="width:100px; font-size: 10pt; color:Navy; font-family: Arial, Helvetica, sans-serif; border: none; background: transparent;" readonly disabled>
                                                                                 <label >{{address.get('LimitValue').value}}</label></div>
                                                                             <!-- <input type="text" class="form-control"
@@ -498,12 +497,12 @@
                                                                                 formControlName="LimitValue"
                                                                                 style="width:80px; font-size: 10pt; color:Navy; font-family: Arial, Helvetica, sans-serif; border: none; background: transparent;" readonly disabled> -->
                                                                         </td>
-                                                                        <td>
-                                                                            <div style="width:100px; font-size: 8pt; color:Navy; font-family: Arial, Helvetica, sans-serif; border: none; background: transparent;" readonly disabled>
+                                                                        <td style="border: 1px solid black;">
+                                                                            <div style="width:106px; font-size: 8pt; color:Navy; font-family: Arial, Helvetica, sans-serif; border: none; background: transparent;" readonly disabled>
                                                                                 <label >{{address.get('ResComment').value}}</label></div>                                                                          
                                                                                 
                                                                         </td>
-                                                                        <td hidden>
+                                                                        <td style="border: 1px solid black;" hidden>
                                                                             <button class="btn btn-success" *ngIf="j<1"
                                                                                 (click)="addAddress(i)"
                                                                                 type="button">+</button>

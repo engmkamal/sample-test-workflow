@@ -1,7 +1,7 @@
 
 
     
-    <style>
+    <!-- <style>
       table, th, td {
         border: 1px solid black;
       }  
@@ -30,14 +30,18 @@
              overflow-x: scroll;
              display: inline-grid;
           }   
-       </style>
+       </style> -->
        
-       <style>
-          label{
-             color:Navy;
-             font-family: 'arial';
-          } 
-       </style>
+<style>
+   table, th, td {
+      border: 1px solid black;
+   }
+   
+   label{
+      color:Navy;
+      font-family: 'arial';
+   } 
+</style>
     
     
 
@@ -389,29 +393,29 @@
     
                                   <div fxFlex ="100" fxLayout="row" fxLayout.xs="column" fxLayoutGap="5px">
                                      <div fxFlex ="1 1 100" fxLayout="row" fxLayoutAlign="space-between start">
-                                        <div fxFlex="1 1 100" fxLayout="row" class="div-outer-table">
+                                        <div fxFlex="1 1 100" fxLayout="row" style="overflow-x: scroll; display: inline-grid;">
                                     
                                            <table class="table" formArrayName="TestResults">
                                              <thead class="thead bg-info">
                                                <tr>
-                                                 <th >#</th>
-                                                 <th scope="col">SampleID</th>
+                                                 <th style="border: 1px solid black;">#</th>
+                                                 <th scope="col" style="border: 1px solid black;">SampleID</th>
                                                  <!-- <th scope="col">ReferenceNo</th> -->
-                                                 <th scope="col" class="text-center">
+                                                 <th scope="col" class="text-center" style="border: 1px solid black;">
                                                     <tr>
-                                                       <th scope="col">#</th>
-                                                         <th scope="col" style="width:125px">Parameter</th>
-                                                         <th scope="col" style="width:128px">TestResult</th>
+                                                       <th scope="col" style="border: 1px solid black;">#</th>
+                                                         <th scope="col" style="width:125px; border: 1px solid black;">Parameter</th>
+                                                         <th scope="col" style="width:128px; border: 1px solid black;">TestResult</th>
                                                          <!-- <th scope="col">Gender</th> -->
-                                                         <th scope="col" style="width:78px">Unit</th>
-                                                         <th scope="col" style="width:78px">RL</th>
-                                                         <th scope="col" style="width:88px">LimitValue</th>
-                                                         <th scope="col" style="width:118px">ResComment</th>
+                                                         <th scope="col" style="width:78px; border: 1px solid black;">Unit</th>
+                                                         <th scope="col" style="width:78px; border: 1px solid black;">RL</th>
+                                                         <th scope="col" style="width:88px; border: 1px solid black;">LimitValue</th>
+                                                         <th scope="col" style="width:118px; border: 1px solid black;">ResComment</th>
                                                          <th scope="col">Action</th>
                                                     </tr>
                                                  </th>
                                                  
-                                                 <th scope="col">Action</th>
+                                                 <th scope="col" style="border: 1px solid black;">Action</th>
                                                </tr>
                                              </thead>
                                              <tbody>
@@ -420,7 +424,7 @@
                                                  <td><input class="form-control" type="text" placeholder="SampleID" formControlName="SampleID" style="width:125px" readonly disabled></td>
                                                  <!-- <td><input class="form-control" type="text" placeholder="ReferenceNo" formControlName="ReferenceNo"></td> -->
                                                  <td>
-                                                   <table class="table table-sm" formArrayName="Results">
+                                                   <table class="table-sm" formArrayName="Results" style="border: 1px solid black;">
                                                      <!-- <thead>
                                                        <tr>
                                                          <th scope="col">#</th>
@@ -435,13 +439,13 @@
                                                      </thead> -->
                                                      <tbody>
                                                        <tr *ngFor="let address of getAddress(person); let j=index" [formGroupName]="j">
-                                                         <td>
+                                                         <td style="border: 1px solid black;">
                                                            {{j+1}}
                                                          </td>
-                                                         <td>
+                                                         <td style="border: 1px solid black;">
                                                            <input type="text" class="form-control" placeholder="Parameter" formControlName="Parameter" style="width:115px">
                                                          </td>
-                                                         <td>
+                                                         <td style="border: 1px solid black;">
                                                           <input type="text" class="form-control" placeholder="TestResult" formControlName="TestResult" style="width:120px">
                                                         </td>
                                                          <!-- <td>
@@ -452,19 +456,19 @@
                                                              </option>
                                                             </select>
                                                          </td> -->
-                                                         <td>
+                                                         <td style="border: 1px solid black;">
                                                            <input type="text" class="form-control" placeholder="Unit" formControlName="Unit" style="width:70px">
                                                          </td>
-                                                         <td>
+                                                         <td style="border: 1px solid black;">
                                                            <input type="text" class="form-control" placeholder="RL" formControlName="RL" style="width:70px">
                                                          </td>
-                                                         <td>
+                                                         <td style="border: 1px solid black;">
                                                            <input type="text" class="form-control" placeholder="LimitValue" formControlName="LimitValue" style="width:80px">
                                                          </td>
-                                                         <td>
+                                                         <td style="border: 1px solid black;">
                                                            <input type="text" class="form-control" placeholder="ResComment" formControlName="ResComment" style="width:110px">
                                                          </td>
-                                                         <td>
+                                                         <td style="border: 1px solid black;">
                                                            <button class="btn btn-success" *ngIf="j<1" (click)="addAddress(i)" type="button">+</button>
                                                            <button class="btn btn-danger" *ngIf="j>=1" (click)="removeAddress(i, j)" type="button">-</button>
                                                          </td>
@@ -472,7 +476,7 @@
                                                      </tbody>
                                                    </table>
                                                  </td>
-                                                 <td>
+                                                 <td style="border: 1px solid black;">
                                                    <button class="btn btn-success" style="float:left;" (click)="addTestResults()" type="button">+</button>
                                                    <button class="btn btn-danger" style="float:right;" *ngIf="i>=1" (click)="removeTestResults(i)" type="button">-</button>
                                                  </td>
