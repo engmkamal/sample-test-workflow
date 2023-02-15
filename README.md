@@ -1,14 +1,10 @@
 # Dashboard
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.4.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.4 and is being end up to version 11.1.1
 
 # Making of
 
-Youtube: https://youtu.be/FP7Hs8lTy1k
-
 # Buy me a drink? :)
-
-[Donate](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=soufianosse@gmail.com&lc=US&no_note=0&item_name=Buy+me+a+bear&cn=&curency_code=USD&bn=PP-DonationsBF:btn_donateCC_LG.gif:NonHosted)
 
 # Demo 
 
@@ -23,6 +19,13 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Build for production
+
+Run `node --max_old_space_size=8192 ./node_modules/@angular/cli/bin/ng build --prod`
+
+## To Run in development server
+Run `node --max_old_space_size=8192 ./node_modules/@angular/cli/bin/ng serve --aot --proxy-config proxy.conf.json --host 0.0.0.0 --disable-host-check --live-reload --progress`
 
 ## Build
 
